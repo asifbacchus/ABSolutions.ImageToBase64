@@ -141,14 +141,11 @@ public class Base64Converter : IBase64Converter
                     usingDefault = true;
                 }
 
-                var typedBase64String = $"data:image/{fileExtension};base64,{responseContent}";
-
                 // update cache with image as Base64 string, unless disabled or using default image
                 if (cache && !usingDefault)
-                    await UpdateCachedBase64ObjectAsync(filename!, typedBase64String, expiry);
+                    await UpdateCachedBase64ObjectAsync(filename!, responseContent, expiry);
 
-                // return Base64 string
-                return typedBase64String;
+                return $"data:image/{fileExtension};base64,{responseContent}";
             }
             catch (OperationCanceledException exception) when (cancellationToken.IsCancellationRequested)
             {
