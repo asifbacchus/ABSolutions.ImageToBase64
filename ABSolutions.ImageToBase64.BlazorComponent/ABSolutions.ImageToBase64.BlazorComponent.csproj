@@ -1,18 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Title>Base64 Image Blazor Component</Title>
-        <Description>Blazor Component to create an &lt;img&gt; tag referencing a Base64 string generated using the ABSolutions.ImageToBase64 library.</Description>
-        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
-        <PackageLicenseUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64/src/branch/main/LICENSE</PackageLicenseUrl>
-        <PackageIcon>NuGetIcon.png</PackageIcon>
-        <RepositoryUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64.git</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <Authors>Asif Bacchus</Authors>
+        <Company>A-B Solutions</Company>
+        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
+        <Description>Blazor Component to create an &lt;img&gt; tag referencing a Base64 string generated using the ABSolutions.ImageToBase64 library.</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageIcon>NuGetIcon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64.git</RepositoryUrl>
+        <TargetFramework>net8.0</TargetFramework>
+        <Title>Base64 Image Blazor Component</Title>
     </PropertyGroup>
 
 
@@ -29,14 +31,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="LICENSE">
-        <Pack>true</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-      <None Update="README.md">
-        <Pack>true</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+        <None Include="LICENSE" Pack="true" PackagePath="\"/>
+        <None Include="NuGetIcon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>

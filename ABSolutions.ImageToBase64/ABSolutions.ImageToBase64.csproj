@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <Authors>Asif Bacchus</Authors>
+        <Company>A-B Solutions</Company>
+        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
+        <Description>Retrieve an image file from the local file system or a remote server and convert it to a Base64 string with a data URI prefix.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Image Base64 Converter</Title>
-        <Authors>Asif Bacchus</Authors>
-        <Description>Retrieve an image file from the local file system or a remote server and convert it to a Base64 string with a data URI prefix.</Description>
-        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
-        <RepositoryType>git</RepositoryType>
-        <PackageLicenseUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64/src/branch/main/LICENSE</PackageLicenseUrl>
         <PackageIcon>NuGetIcon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64.git</RepositoryUrl>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <TargetFramework>net8.0</TargetFramework>
+        <Title>Image Base64 Converter</Title>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,6 +26,7 @@
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\"/>
         <None Include="LICENSE" Pack="true" PackagePath="\"/>
+        <None Include="NuGetIcon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
