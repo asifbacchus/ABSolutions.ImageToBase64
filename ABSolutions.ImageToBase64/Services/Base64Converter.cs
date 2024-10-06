@@ -89,7 +89,7 @@ public class Base64Converter : IBase64Converter
         }
     }
 
-    public async Task<string> GetImageAsBase64Async(string? filename, bool? useCache, bool? noExpiry,
+    public async Task<string> GetImageAsBase64Async(string? filename, bool? useCache = null, bool? noExpiry = null,
         CancellationToken cancellationToken = default)
     {
         var logContexts = new Dictionary<string, object>
