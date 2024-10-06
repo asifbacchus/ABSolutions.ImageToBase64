@@ -4,6 +4,15 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Title>Base64 Image Blazor Component</Title>
+        <Description>Blazor Component to create an &lt;img&gt; tag referencing a Base64 string generated using the ABSolutions.ImageToBase64 library.</Description>
+        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
+        <PackageLicenseUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64/src/branch/main/LICENSE</PackageLicenseUrl>
+        <PackageIcon>NuGetIcon.png</PackageIcon>
+        <RepositoryUrl>https://git.asifbacchus.dev/ABSolutions/ImageToBase64.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
 
