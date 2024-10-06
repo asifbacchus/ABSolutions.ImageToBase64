@@ -28,10 +28,6 @@
         <Pack>true</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Update="ImageToBase64Blazor_icon.png">
-        <Pack>true</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
     </ItemGroup>
 
 </Project>

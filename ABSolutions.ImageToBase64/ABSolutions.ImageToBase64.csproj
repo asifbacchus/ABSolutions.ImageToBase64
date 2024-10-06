@@ -4,6 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Image Base64 Converter</Title>
+        <Authors>Asif Bacchus</Authors>
+        <Description>Retrieve an image file from the local file system or a remote server and convert it to a Base64 string with a data URI prefix.</Description>
+        <Copyright>Copyright (c) A-B Solutions 2024</Copyright>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,7 +21,6 @@
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\"/>
         <None Include="LICENSE" Pack="true" PackagePath="\"/>
-        <None Include="ImageToBase64_icon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
