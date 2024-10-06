@@ -1,0 +1,42 @@
+<img src="@_base64Image" alt="@(Alt ?? @"""")" @attributes="@_imageAttributes"/>
+
+@code {
+    private string? _base64Image;
+    private Dictionary<string, object> _imageAttributes = [];
+
+    [Inject] private IBase64Converter Base64Converter { get; set; } = default!;
+
+    [Parameter] public string? Filename { get; set; }
+    [Parameter] public string? Alt { get; set; }
+    [Parameter] public bool AriaHidden { get; set; } = true;
+    [Parameter] public string AriaDescription { get; set; } = string.Empty;
+    [Parameter] public string AriaLabel { get; set; } = string.Empty;
+    [Parameter] public string Class { get; set; } = string.Empty;
+    [Parameter] public string Role { get; set; } = "img";
+    [Parameter] public Dictionary<string, object> Attributes { get; set; } = [];
+
+    [Parameter] public bool? UseCache { get; set; }
+    [Parameter] public bool? NoExpiry { get; set; }
+
+    [Parameter] public EventCallback<bool> Base64ImageChanged { get; set; }
+    [Parameter] public CancellationToken CancellationToken { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _imageAttributes.Add("aria-hidden", AriaHidden.ToString().ToLowerInvariant());
+        _imageAttributes.Add("role", Role.ToLowerInvariant());
+        if (!string.IsNullOrWhiteSpace(AriaDescription))
+            _imageAttributes.Add("aria-description", AriaDescription);
+        if (!string.IsNullOrWhiteSpace(AriaLabel))
+            _imageAttributes.Add("aria-label", AriaLabel);
+        if (!string.IsNullOrWhiteSpace(Class))
+            _imageAttributes.Add("class", Class);
+        _imageAttributes = _imageAttributes
+            .Concat(Attributes)
+            .ToDictionary(pair => pair.Key, pair => pair.Value);
+
+        _base64Image = await Base64Converter.GetImageAsBase64Async(Filename, UseCache, NoExpiry, CancellationToken);
+        await Base64ImageChanged.InvokeAsync(!string.IsNullOrWhiteSpace(_base64Image));
+    }
+
+}
