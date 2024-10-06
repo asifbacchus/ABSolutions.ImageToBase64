@@ -58,6 +58,7 @@ riderModule.iml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+.idea/**/GitCommitMessageStorage.xml
 
 # modules
 .idea_modules/
