@@ -35,6 +35,8 @@ Time in minutes before base64 cache entries expire. Base64 strings in the cache 
 </def>
 </deflist>
 
+> `EnableBase64Cache` and `NoExpiry` can be override on a per-call basis. Please see [Calling the Library](Calling-the-Library.md) for more information.
+
 ## Configuration example
 
 ```json
