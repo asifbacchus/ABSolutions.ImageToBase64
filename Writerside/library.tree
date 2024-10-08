@@ -12,5 +12,9 @@
     <toc-element topic="Dependency-Injection.md"/>
     <toc-element topic="HTTP-Client.md"/>
     <toc-element topic="Calling-the-Library.md"/>
-    <toc-element topic="Build-a-Demo-API.md"/>
+    <toc-element topic="Build-a-Demo-API.md">
+        <toc-element topic="Run-the-Project.md"/>
+        <toc-element topic="Prerequisites-and-Configuration.md"/>
+        <toc-element topic="Create-Endpoints.md"/>
+    </toc-element>
 </instance-profile>
