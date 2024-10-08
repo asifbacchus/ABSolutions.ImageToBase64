@@ -1,6 +1,9 @@
 # Configuration Reference
 
-All library configuration options are configured in the `appsettings.json`. The following is a detailed explanation of each configuration option.
+## Configuration options
+
+All library configuration options are configured in the `appsettings.json`. The following is a detailed explanation of
+each configuration option.
 
 > Configuration options **MUST** be in a key called `Base64Converter` or the library will not find your settings!
 > {style="warning"}
@@ -31,3 +34,35 @@ Time in minutes before base64 cache entries expire. Base64 strings in the cache 
 **Default:** `1440` (1 day)
 </def>
 </deflist>
+
+## Configuration example
+
+```json
+{
+  "Base64Converter": {
+    "HttpClientName": "Base64Converter",
+    "UpstreamImageAssetBaseUri": "http://localhost",
+    "UpstreamImageRetrievalTimeoutSeconds": 5,
+    "EnableBase64Cache": true,
+    "NoExpiry": false,
+    "Base64CacheExpiryMinutes": 1440
+  }
+}
+```
+
+## Configuration bind-model
+
+In the event you need to read the configuration options, you can access them via dependency injection using the *options
+pattern*. Inject `IOptions<Base64ConverterConfiguration>` into your class, something like this:
+
+```Java
+public class MyService
+{
+    private readonly Base64ConverterConfiguration _config;
+
+    public MyService(IOptions<Base64ConverterConfiguration> config)
+    {
+        _config = config.Value;
+    }
+}
+```
