@@ -25,12 +25,12 @@ The service only has one method, `GetImageAsBase64Async`, with the following sig
 
 As you can see, there are actually no required parameters. In practice, however, you will be at least be supplying a filename.
 
-| Parameter         | Explanation                                                                                                                           | Default                   |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| filename          | The file (or relative path and file name) to retrieve.                                                                                | `none`                    |
-| useCache          | Whether to use the in-memory cache for this particular request. If specificed (not null), overrides the global configuration setting. | `null`                    |
-| noExpiry          | Set the cache entry for this request to never expire. If specific (not null), overrides the global configuration setting.             | `null`                    |
-| cancellationToken | Optional cancellation token to use. If none supplied, this task will not be cancellable.                                              | `CancellationToken.None`  |
+| Parameter         | Explanation                                                                                                                                | Default                   |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| filename          | The file (or relative path and file name) to retrieve.                                                                                     | `none`                    |
+| useCache          | Whether to use the in-memory cache for this particular request. If specificed (not null), this overrides the global configuration setting. | `null`                    |
+| noExpiry          | Set the cache entry for this request to never expire. If specified (not null), this overrides the global configuration setting.            | `null`                    |
+| cancellationToken | Optional cancellation token to use. If none supplied, this task will not be cancellable.                                                   | `CancellationToken.None`  |
 
 This is an *asynchronous* method that returns a `Task<string>` where the string is the Base64 encoded image.
 
@@ -48,7 +48,7 @@ public class MyClass
     
     public async Task PrintBase64Image(string filename)
     {
-        Console.WriteLine(await _base64Image.GetImageAsBase64Async(filename);
+        Console.WriteLine(await _base64Image.GetImageAsBase64Async(filename));
     }
 }
 ```
