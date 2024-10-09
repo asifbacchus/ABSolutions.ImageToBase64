@@ -12,7 +12,7 @@ While the extension method registers all services specific to this library, you 
 
 Here's an example, using default values, of how you can handle all necessary dependency injection in your `program.cs`. This can be placed anywhere in the build section (before `builder.Build()`):
 
-```Java
+```c#
 builder.Services.AddHttpClient("ImageToBase64");
 builder.Services.AddImageToBase64(builder.Configuration);
 ```

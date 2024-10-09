@@ -4,7 +4,7 @@
 
 Since the library is registered with dependency injection, you can inject it anywhere you need it.
 
-```Java
+```c#
 public class MyClass
 {
     private readonly IBase64Converter _base64Image;
@@ -36,7 +36,7 @@ This is an *asynchronous* method that returns a `Task<string>` where the string 
 
 Continuing with the previous example code where we injected the library, this is an example of how to call this method:
 
-```Java
+```c#
 public class MyClass
 {
     private readonly IBase64Converter _base64Image;

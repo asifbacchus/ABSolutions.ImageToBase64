@@ -12,7 +12,7 @@ The `HttpClient` should be configured as per the `IHttpClientFactory` pattern. T
 
 ### Basic configuration
 
-```Java
+```c#
 builder.Services.AddHttpClient("MyHttpClient");
 ```
 
@@ -20,7 +20,7 @@ This will create an `HttpClient` named "MyHttpClient" with default settings.
 
 ### Set response headers
 
-```Java
+```c#
 builder.Services.AddHttpClient("MyHttpClient", client =>
 {
     client.DefaultRequestHeaders.Add("Accept", "image/*");
@@ -34,7 +34,7 @@ This will create an `HttpClient` named "MyHttpClient". An `Accept: image/*` requ
 
 Since methods and requirements for upstream authentication can vary greatly, this is probably the best example of why the choice was made to require injecting a separately configured `HttpClient`. In general, something like would be used for bearer token authentication:
 
-```Java
+```c#
 builder.Services.AddHttpClient("MyHttpClient", client =>
 {
     client.DefaultRequestHeaders.Add("Accept", "image/*");

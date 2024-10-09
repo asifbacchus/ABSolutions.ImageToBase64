@@ -60,12 +60,12 @@ following in your `Program.cs`:
 
 1. Add the following `using` statement:
 
-    ```java
+    ```c#
     using Base64Converter.DependencyInjection;
     ```
 2. Add the following lines anywhere before `builder.Build()`:
 
-    ```java
+    ```c#
    builder.Services.AddHttpClient("Base64Converter");
    builder.Services.AddImageToBase64(builder.Configuration);
    ```
@@ -85,7 +85,7 @@ convert to a Base64 string. The method returns a `Task<string>`.
 
 To use the library, inject `IBase64Converter` into your class and call the method. Here is a trivial example:
 
-```java
+```c#
 using ABSolutions.ImageToBase64.Services;
 
 public class MyClass
