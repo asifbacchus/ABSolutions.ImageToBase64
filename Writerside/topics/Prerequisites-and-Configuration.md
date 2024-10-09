@@ -3,12 +3,12 @@
 ## Project template
 
 Create a new `Empty ASP.NET Core Web Application` project. Use .NET 8.0.
+> An *empty* web application project is the typical
+template used when creating a minimal API project.
 
 ## NuGet packages
 
-Please install the following NuGet packages using your preferred method:
-
-- `ABSolutions.ImageToBase64`
+Please install the `ABSolutions.ImageToBase64` NuGet package.
 
 ## Configuration
 
@@ -102,7 +102,8 @@ app.Run();
 </tab>
 </tabs>
 
-First, we use the `AddImageToBase64` extension method to register the library's services. Then, we add a custom `HttpClient` with two request headers.
+First, we use the `AddImageToBase64` extension method to register the library's services. Then, we add a custom
+`HttpClient` with two request headers.
 
 > The `Accept` header tells the upstream service that we only want images. This is strongly recommended.
 > The `UserAgent` header is included as an example of other headers that can be added.

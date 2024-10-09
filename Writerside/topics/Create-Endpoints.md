@@ -1,6 +1,7 @@
 # Create Endpoints
 
-We'll be making three endpoints for this demo project: `root`, `base64`, and `picture`. To keep things simple, we'll just put all the endpoints in the `Program.cs`. Add the following sections after the `builder.Build();` line.
+We'll be making three endpoints for this demo project: `root`, `base64`, and `picture`. To keep things simple, we'll
+just put all the endpoints in the `Program.cs` file. Add the following sections after the `builder.Build();` line.
 
 <tabs>
 <tab title="root">
@@ -35,9 +36,13 @@ app.MapGet("/base64", async (IBase64Converter converter, bool cache = false) =>
 });
 </code-block>
 <br/>
-This endpoint returns the Base64 representation of a random remote image. The `cache` query parameter is optional and defaults to `false`. If `true`, the image will be cached for the duration specified in the configuration file.
 
-The `cache` parameter defaults to `false` so that a new image is fetched from the remote on reload. This is only to help you confirm that new Base64 strings are being generated.
+This endpoint returns the Base64 representation of a random remote image. The `cache` query parameter is optional and
+defaults to `false`. If `true`, the image will be cached for the duration specified in `appsettings.json`.
+
+The `cache` parameter defaults to `false` so that a new image is fetched from the remote server on reload. This is only
+to help
+you confirm that new Base64 strings are being generated.
 </tab>
 <tab title="picture">
 <code-block lang="c#">
@@ -62,15 +67,20 @@ app.MapGet("/picture", async (IBase64Converter converter, bool cache = false) =&
 });
 </code-block>
 <br/>
-This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage displaying that image using the embedded Base64 string. The `cache` query parameter is optional and defaults to `false`. If `true`, the image will be cached for the duration specified in the configuration file.
 
-The `cache` parameter defaults to `false` so that a new image is fetched from the remote on reload. This is only to help you confirm that new Base64 strings are being generated.
+This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage displaying that
+image using the embedded Base64 string. The `cache` query parameter is optional and defaults to `false`. If `true`, the
+image will be cached for the duration specified in the configuration file.
+
+The `cache` parameter defaults to `false` so that a new image is fetched from the remote server on reload. This is only to help
+you confirm that new Base64 strings are being generated.
 </tab>
 </tabs>
 
 ## The `CustomHtmlResult` class
 
-Notice in the `picture` endpoint we are returning a `CustomHtmlResult`. This is a custom class that we'll need to create. Add the following class to the project.
+Notice in the `picture` endpoint we are returning a `CustomHtmlResult`. This is a custom class that we'll need to
+create. Add the following class to the project.
 
 <code-block lang="c#">
 public class CustomHtmlResult : IResult
@@ -91,7 +101,8 @@ public class CustomHtmlResult : IResult
 }
 </code-block>
 
-This class allows us to return a custom HTML string as a response as opposed to text or JSON. Without this class, the `htmlTemplate` in the `picture` endpoint would be returned as plain-text instead of HTML.
+This class allows us to return a custom HTML string as a response as opposed to text or JSON. Without this class, the
+`htmlTemplate` in the `picture` endpoint would be returned as plain-text instead of HTML.
 
 > Explaining this class and the `IResult` type is beyond the scope of this document.
 > {style="note"}
