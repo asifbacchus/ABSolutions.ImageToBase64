@@ -2,16 +2,15 @@
 
 ## Configuration options
 
-All library configuration options are configured in the `appsettings.json`. The following is a detailed explanation of
+All library configuration options are defined in `appsettings.json`. The following is a detailed explanation of
 each configuration option.
 
 > Configuration options **MUST** be in a key called `Base64Converter` or the library will not find your settings!
 > {style="warning"}
 
 <deflist collapsible="true">
-<def title="string:HttpClientName">
-Named HTTP client to use/create to retrieve upstream remote images for conversion. [more info]()
-**Default:** `Base64Converter`
+<def title="string:HttpClientName | Default: `Base64Converter`">
+Named HTTP client to use/create to retrieve upstream remote images for conversion. <a href="HTTP-Client.md">[more info]</a>
 </def>
 <def title="string:UpstreamImageAssetBaseUri">
 Upstream base URI from which to retrieve images. If a file path is provided, images will be retrieved relative to this path. If a URL is provided, images will be retrieved relative to this URL. If specifying a URL, it *must be an absolute URL*. A trailing slash will added to this value if not present. **NOTE**: You MUST specify a protocol for this URI: `http://`, `https://` or `file://`. 

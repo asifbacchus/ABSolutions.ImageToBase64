@@ -4,7 +4,7 @@
 
 This quickstart guides you through:
 
-- [Installation and configuration](#installation)
+- [Installation](#installation)
 - [Configuration](#configuration)
 - [Dependency injection](#dependency-injection)
 - [Calling the library](#calling-the-library)
@@ -25,7 +25,7 @@ the [GitHub repository](https://github.com/asifbacchus/ABSolutions.ImageToBase64
 
 ## Configuration
 
-All configuration is handled via `appsettings.json` using the **required** key `Base64Converter`. The following settings
+All configuration is handled via `appsettings.json` under the **required** key `Base64Converter`. The following settings
 are available:
 
 | Property Name                          | Type     | Description                                                                  | Default            |
@@ -40,14 +40,14 @@ are available:
 > `EnableBase64Cache` and `NoExpiry` can be overridden per-request.
 > {style="note"}
 
-`UpstreamImageAssetBaseUri` can be a local directory or a remote URL. If it is a local directory, the library will
-attempt to read the file from the local file system. If it is a remote URL, the library will attempt to download the
-file from the URL.
+`UpstreamImageAssetBaseUri` can be a local directory or a remote URL.
 
 - A trailing slash (`/`) will be added to the base URI if it is missing.
 - Filenames are appended to this base URI when retrieving images.
-    - The base URI should be common parent directory if you are using local files.
+    - The base URI should be a common parent directory if you are using local files.
     - The base URI should be the base URL if you are using remote files.
+- Filename are not restricted to only being a file name. You can use entire paths relative to the base URI. If doing
+  this, ensure that the path ends in the actual file to be retrieved.
 
 > You MUST supply a valid URI scheme (`http://`, `https://`, `file://`) in the `UpstreamImageAssetBaseUri` setting. If
 > using `http` or `https`, invalid URLs will throw a `UriFormatException`.
@@ -80,7 +80,7 @@ following in your `Program.cs`:
 ## Calling the library
 
 The library only has one public method: `GetImageAsBase64Async()`. This method takes a `string` parameter that
-represents the filename or relative path from the `UpstreamImageAssetBaseUri` setting to the image you want to
+represents the filename or relative path from the `UpstreamImageAssetBaseUri` to the image you want to
 convert to a Base64 string. The method returns a `Task<string>`.
 
 To use the library, inject `IBase64Converter` into your class and call the method. Here is a trivial example:
