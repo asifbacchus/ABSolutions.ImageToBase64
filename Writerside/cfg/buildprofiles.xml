@@ -4,7 +4,7 @@
                xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
     <sitemap/>
     <variables>
-        <custom-favicons>favicon.png</custom-favicons>
+        <custom-favicons>favicon.ico</custom-favicons>
         <primary-color>#e19f29</primary-color>
         <link-color>#e7b254</link-color>
         <color-preset>contrast</color-preset>
