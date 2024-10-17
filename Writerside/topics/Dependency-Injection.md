@@ -1,5 +1,9 @@
 # Dependency Injection
 
+<link-summary>Explanation of how dependency injection is used by this library.</link-summary>
+<card-summary>Explanation of how dependency injection is used by this library.</card-summary>
+<web-summary>Explanation of dependency injection usage in ABSolutions.ImageToBase64 .NET library.</web-summary>
+
 This library is best used via dependency injection. To make this easier, this library includes a `ServiceCollection`
 extension method that will register the in-memory cache and converter services for you. The extension method requires a
 reference to the configuration container to read settings from `appsettings.json`.

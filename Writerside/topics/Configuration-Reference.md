@@ -1,5 +1,9 @@
 # Configuration Reference
 
+<link-summary>Explanation of configuration options for this library and their default settings.</link-summary>
+<card-summary>Detailed explanation of all configuration options for this library along with default settings.</card-summary>
+<web-summary>Configuration options for ABSolutions.ImageToBase64 .NET library.</web-summary>
+
 ## Configuration options
 
 All library configuration options are defined in `appsettings.json`. The following is a detailed explanation of
@@ -43,7 +47,7 @@ Number of minutes before base64 cache entries expire. Base64 strings in the cach
 </def>
 </deflist>
 
-> `EnableBase64Cache` and `NoExpiry` can be overriden on a per-call basis. Please see [Calling the Library](Calling-the-Library.md) for more information.
+> `EnableBase64Cache` and `NoExpiry` can be overriden on a per-call basis. Please see [](Calling-the-Library.md) for more information.
 
 ## Configuration example
 

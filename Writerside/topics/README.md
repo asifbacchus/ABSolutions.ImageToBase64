@@ -1,12 +1,16 @@
 # ABSolutions.ImageToBase64: Library for .NET Core
 
+<link-summary>General overview and information about the ABSolutions.ImageToBase64 library.</link-summary>
+<card-summary>General overview and information about the ABSolutions.ImageToBase64 library.</card-summary>
+<web-summary>Information about ABSolutions.ImageToBase64 .NET library and links to in-depth documentation.</web-summary>
+
 ## Project information
 
-| Author        | A-B Solutions (Asif Bacchus)                                                                                                               |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Contact       | asif@a-b.solutions                                                                                                                         |
-| Git repo      | [https://github.com/asifbacchus/ABSolutions.ImageToBase64](https://github.com/asifbacchus/ABSolutions.ImageToBase64)                       |
-| Documentation | [https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64](https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64) |
+| Author        | A-B Solutions (Asif Bacchus)                                            |
+|---------------|-------------------------------------------------------------------------|
+| Contact       | asif@a-b.solutions                                                      |
+| Git repo      | [](https://github.com/asifbacchus/ABSolutions.ImageToBase64)            |
+| Documentation | [](https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64) |
 
 {style="none"}
 
@@ -28,8 +32,8 @@ This library is targeted for .NET Core 8 and has the following dependencies:
 
 Please refer to the following topics for more information about using this library:
 
-- [Quickstart](Quickstart.md)
-- [Build a Demo API](Build-a-Demo-API.md)
+- [](Quickstart.md)
+- [](Build-a-Demo-API.md)
 
 Alternatively, you can inspect the `ABSolutions.ImageToBase64.Demo.API` project in
 the [git repository](https://github.com/asifbacchus/ABSolutions.ImageToBase64).

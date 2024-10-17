@@ -1,5 +1,9 @@
 # Prerequisites and Configuration
 
+<link-summary>API Demo: Setting up and configuring the library for use in the API demo.</link-summary>
+<card-summary>Learn how to set-up and configure the library for use in the API demo project.</card-summary>
+<web-summary>ABSolutions.ImageToBase64 API demo: Configuring the library.</web-summary>
+
 ## Project template
 
 Create a new `Empty ASP.NET Core Web Application` project. Use .NET 8.0.

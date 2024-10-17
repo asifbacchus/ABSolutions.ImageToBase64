@@ -1,13 +1,17 @@
 # HTTP Client
 
+<link-summary>How to configure the HTTP client for use with this library.</link-summary>
+<card-summary>Explanation and examples of how to configure the HTTP client for use with this library.</card-summary>
+<web-summary>Configuring the HTTP client for use with ABSolutions.ImageToBase64 .NET library.</web-summary>
+
 To make this library more flexible and to account for the numerous possible upstream configuration cases, this library
 allows you to configure the `HttpClient` it uses externally in your code. This also allows you to share the client
 between services, if desired.
 
 The `HttpClient` should be configured as per the `IHttpClientFactory` pattern. This allows you to configure many options
-such as default request headers, resiliance policies and even delegating handlers for things like authentication.
+such as default request headers, resilience policies and even delegating handlers for things like authentication.
 
-> The most important configuration option is the `HttpClient` name. This must match the name you specify in the libary
+> The most important configuration option is the `HttpClient` name. This must match the name you specify in the library
 > configuration in `appsettings.json`.
 
 ## Example configurations

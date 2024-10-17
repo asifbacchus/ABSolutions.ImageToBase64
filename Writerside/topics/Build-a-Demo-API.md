@@ -1,5 +1,9 @@
 # Build a Demo API
 
+<link-summary>Learn about this library by building an API that uses it.</link-summary>
+<card-summary>Step-by-step walkthrough building an API that uses this library.</card-summary>
+<web-summary>Build an API to learn how to use ABSolutions.ImageToBase64 .NET library.</web-summary>
+
 The best way to understand how this library works and how to use it is to review the
 `ABSolutions.ImageToBase64.Demo.Api` project. The project is a minimal API that has two endpoints of interest:
 

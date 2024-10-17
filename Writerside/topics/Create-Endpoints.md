@@ -1,5 +1,9 @@
 # Create Endpoints
 
+<link-summary>API Demo: Creating endpoints to show different library uses.</link-summary>
+<card-summary>Build 2 endpoints to see variations of how this library can be used.</card-summary>
+<web-summary>ABSolutions.ImageToBase64 API demo: Building the request endpoints.</web-summary>
+
 We'll be making three endpoints for this demo project: `root`, `base64`, and `picture`. To keep things simple, we'll
 just put all the endpoints in the `Program.cs` file. Add the following sections after the `builder.Build();` line.
 

@@ -1,14 +1,16 @@
 # Quickstart
 
-## Overview
+<link-summary>Get up and running quickly with a default configuration of this library.</link-summary>
+<card-summary>Guide to get this library set-up and running in a default configuration.</card-summary>
+<web-summary>Quickstart guide to setting up and running ABSolutions.ImageToBase64 .NET library.</web-summary>
 
 This quickstart guides you through:
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Dependency injection](#dependency-injection)
-- [Calling the library](#calling-the-library)
-- [More information](#more-information)
+- <a href="#installation" summary="Installing the NuGet package">Installation</a>
+- <a href="#configuration" summary="Configuration options">Configuration</a>
+- <a href="#dependency-injection" summary="Use this library via dependency injection">Dependency injection</a>
+- <a href="#calling-the-library" summary="How to call this library in your code">Calling the library</a>
+- <a href="#more-information" summary="Get more in-depth information about this library">More information</a>
 
 > This quickstart is meant to provide an overview of the library and its features. It is not a comprehensive guide. More
 > information is provided on separate pages of this documentation and in the demo library.

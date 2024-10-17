@@ -1,5 +1,9 @@
 # Run the Project
 
+<link-summary>API Demo: Running the project to see how this library works.</link-summary>
+<card-summary>Run the demo project to see how this library works.</card-summary>
+<web-summary>ABSolutions.ImageToBase64 API demo: Running the demo project.</web-summary>
+
 That's it! You're ready to run this demo project. Somewhat counterintuitively, I actually strongly recommend you access this API using your web browser instead of a tool like *Insomnia* or *Postman*. This is because the `GET /picture` endpoint returns an HTML page with an embedded image. Plus, using a browser will allow you to quickly confirm the image is being displayed using an embedded Base64 string and not a link of any kind.
 
 ## Main page
