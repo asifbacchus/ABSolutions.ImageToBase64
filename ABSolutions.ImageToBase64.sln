@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABSolutions.ImageToBase64.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABSolutions.ImageToBase64.Demo.Api", "ABSolutions.ImageToBase64.Demo.Api\ABSolutions.ImageToBase64.Demo.Api.csproj", "{FC01B286-7795-4EBE-B1E2-085FBEAEC984}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABSolutions.ImageToBase64.Demo.Blazor", "ABSolutions.ImageToBase64.Demo.Blazor\ABSolutions.ImageToBase64.Demo.Blazor.csproj", "{1945905E-3EB8-4691-B12B-E23E10C87614}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FC01B286-7795-4EBE-B1E2-085FBEAEC984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC01B286-7795-4EBE-B1E2-085FBEAEC984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC01B286-7795-4EBE-B1E2-085FBEAEC984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1945905E-3EB8-4691-B12B-E23E10C87614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1945905E-3EB8-4691-B12B-E23E10C87614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1945905E-3EB8-4691-B12B-E23E10C87614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1945905E-3EB8-4691-B12B-E23E10C87614}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
