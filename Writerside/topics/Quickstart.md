@@ -37,7 +37,7 @@ are available:
 | `UpstreamImageRetrievalTimeoutSeconds` | `int`    | Number of seconds to try retrieving the image before cancelling the task.    | `5`                |
 | `EnableBase64Cache`                    | `true`   | Whether to use the in-memory cache.                                          | `true`             |
 | `NoExpiry`                             | `false`  | If `true`, cached items will NEVER expire.                                   | `false`            |
-| `Base64CacheExpiryMinutes`             | `int`    | Number of minutes to cache the SVG in memory.                                | `1440`             |
+| `Base64CacheExpiryMinutes`             | `int`    | Number of minutes to cache the image in memory.                              | `1440`             |
 
 > `EnableBase64Cache` and `NoExpiry` can be overridden per-request.
 > {style="note"}
@@ -52,7 +52,8 @@ are available:
   this, ensure that the path ends in the actual file to be retrieved.
 
 > You MUST supply a valid URI scheme (`http://`, `https://`, `file://`) in the `UpstreamImageAssetBaseUri` setting. If
-> using `http` or `https`, invalid URLs will throw a `UriFormatException`.
+> using `http` or `https`, invalid URLs will throw a `UriFormatException`. If using `file`, a missing or invalid path
+> will throw a `DirectoryNotFoundException`.
 > {style="warning"}
 
 ## Dependency injection
@@ -76,8 +77,9 @@ following in your `Program.cs`:
    available for injection.
    > {style="warning"}
 
-   > You can customize the `HttpClient` with headers, delegating handlers, etc. Some examples are provided in other
-   parts of this documentation.
+   <tip>
+    You can customize the `HttpClient` with headers, delegating handlers, etc. Some examples are provided on the <a href="HTTP-Client.md"></a> page.
+   </tip>
 
 ## Calling the library
 
@@ -109,4 +111,7 @@ public class MyClass
 ## More information
 
 If you need more information about available options or features, please refer to the other pages in this documentation.
-Please also check out the demo library for an example of using this library in a minimal API.
+Please also check out
+the [demo library (github)](https://github.com/asifbacchus/ABSolutions.ImageToBase64/tree/main/ABSolutions.ImageToBase64.Demo.Api)
+for an example of using this library in a minimal API. The [](Build-a-Demo-API.md) pages provide a step-by-step guide to
+building the afore mentioned demo library.

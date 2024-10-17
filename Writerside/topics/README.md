@@ -17,8 +17,8 @@
 ### Description
 
 `ABSolutions.ImageToBase64` is a .NET Core library that converts images to base64 strings. Images can be located in the
-local file system or on a remote system accessible via HTTP/S. The library uses a preconfigured or default `HttpClient`
-provided via `IHttpClientFactory` injection, supports logging (if injected) and includes an in-memory caching system.
+local file system or on a remote system accessible via HTTP(S). The library uses a preconfigured or default `HttpClient`
+provided via `IHttpClientFactory` injection, supports logging, and includes an in-memory caching system.
 
 ## Requirements and dependencies
 

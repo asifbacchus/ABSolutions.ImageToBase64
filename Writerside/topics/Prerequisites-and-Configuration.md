@@ -81,7 +81,7 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
  
 builder.Services.AddImageToBase64(builder.Configuration);
-builder.Services.AddHttpClient("Base64ConverterClient", client =>
+builder.Services.AddHttpClient("Base64Converter", client =>
     {
         client.DefaultRequestHeaders.Add("Accept", "image/*");
         client.DefaultRequestHeaders.UserAgent.ParseAdd("ABSolutions.ImageToBase64");

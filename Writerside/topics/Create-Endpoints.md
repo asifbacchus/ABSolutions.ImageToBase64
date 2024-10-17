@@ -19,6 +19,8 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/", () => "Endpoints: '/picture' or '/base64'. Use 'cache' query parameter to control caching.");
 </code-block>
 </compare>
+<br/>
+This will modify our 'homepage' to display a helpful message about the available endpoints and how to use the `cache` query parameter.
 </tab>
 <tab title="base64">
 <code-block lang="c#">
@@ -74,7 +76,7 @@ app.MapGet("/picture", async (IBase64Converter converter, bool cache = false) =&
 
 This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage displaying that
 image using the embedded Base64 string. The `cache` query parameter is optional and defaults to `false`. If `true`, the
-image will be cached for the duration specified in the configuration file.
+image will be cached for the duration specified in `appsettings.json`.
 
 The `cache` parameter defaults to `false` so that a new image is fetched from the remote server on reload. This is only to help
 you confirm that new Base64 strings are being generated.

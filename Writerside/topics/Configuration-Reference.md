@@ -26,7 +26,7 @@ NOTE: You MUST specify a protocol for this URI: http://, https:// or file://.
 **Default:** http://localhost
 </def>
 <def title="int:UpstreamImageRetrievalTimeoutSeconds">
-Timeout in seconds for upstream image retrieval. If this timeout is exceeded, a OperationCancelledException with a TimeoutException inner exception will be thrown.
+Timeout in seconds for upstream image retrieval. If this timeout is exceeded, an OperationCancelledException with a TimeoutException inner exception will be thrown.
 
 **Default:** 5
 </def>

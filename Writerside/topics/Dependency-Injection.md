@@ -19,7 +19,7 @@ Here's an example, using default values, of how you can handle all necessary dep
 This can be placed anywhere in the build section (before `builder.Build()`):
 
 ```c#
-builder.Services.AddHttpClient("ImageToBase64");
+builder.Services.AddHttpClient("Base64Converter");
 builder.Services.AddImageToBase64(builder.Configuration);
 ```
 

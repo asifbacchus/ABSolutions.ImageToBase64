@@ -5,7 +5,7 @@
 <web-summary>Configuring the HTTP client for use with ABSolutions.ImageToBase64 .NET library.</web-summary>
 
 To make this library more flexible and to account for the numerous possible upstream configuration cases, this library
-allows you to configure the `HttpClient` it uses externally in your code. This also allows you to share the client
+expects you to separately configure the `HttpClient` it will use. This also allows you to share the client
 between services, if desired.
 
 The `HttpClient` should be configured as per the `IHttpClientFactory` pattern. This allows you to configure many options
@@ -53,5 +53,5 @@ builder.Services.AddHttpClient("MyHttpClient", client =>
 ```
 
 > In production you will probably either retrieve the token from a secure vault or some form of secured configuration
-> file. Alternatively, you can create a *delegating handler* to handler authentication as needed. The latter option is
-> beyond the scope of this document.
+> file. Alternatively, you can create a *delegating handler* to handle authentication as needed. The latter option is
+> recommended but is beyond the scope of this document.
