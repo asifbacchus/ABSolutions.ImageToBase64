@@ -1,7 +1,10 @@
 @page "/image"
+@using ABSolutions.ImageToBase64.BlazorComponent
 <h1>Base64-encoded Embedded Image</h1>
 <p>The image below is a Base64 encoded image embedded from a remote source. Go ahead and confirm this using your browser's Developer Tools!</p>
+<Base64Image Alt="Random image from upstream source" AriaHidden="true" Role="img" UseCache="false" Filename="500.webp" CancellationToken="CancellationToken"/>
 
 @code {
-
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+    private CancellationToken CancellationToken => _cancellationTokenSource.Token;
 }
