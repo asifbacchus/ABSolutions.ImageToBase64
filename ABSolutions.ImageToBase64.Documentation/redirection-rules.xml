@@ -6,13 +6,4 @@
         <accepts>page.html</accepts>
     </rule>
     -->
-    <rule id="624334ba">
-        <description>Created after removal of "About ImageToBase64-Library" from ImageToBase64-Library</description>
-        <accepts>starter-topic.html</accepts>
-    </rule>
-    <rule id="c214e7f">
-        <description>Created after removal of "About ImageToBase64-BlazorComponent" from ImageToBase64-BlazorComponent
-        </description>
-        <accepts>imagetobase64-blazorcomponent.html</accepts>
-    </rule>
 </rules>
