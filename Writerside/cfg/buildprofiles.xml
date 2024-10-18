@@ -12,11 +12,11 @@
     </variables>
     <build-profile instance="library">
         <variables>
-            <noindex-content>false</noindex-content>
             <product-web-url>https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64</product-web-url>
             <download-title>Project Repo</download-title>
             <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
             <showDownloadButton>true</showDownloadButton>
+            <noindex-content>false</noindex-content>
         </variables>
         <footer>
             <copyright>A-B Solutions/Asif Bacchus 2024</copyright>
