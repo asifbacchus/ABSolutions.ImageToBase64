@@ -24,5 +24,10 @@
             <link href="#">Product NuGet page</link>
         </footer>
     </build-profile>
+    <build-profile instance="blazorComponent">
+        <variables>
+            <noindex-content>false</noindex-content>
+        </variables>
+    </build-profile>
 
 </buildprofiles>
