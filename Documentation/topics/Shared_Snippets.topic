@@ -41,4 +41,119 @@
         </chapter>
     </snippet>
 
+    <snippet id="LibraryConfigTableWithNotes">
+        <p>
+            All configuration is handled via <code>appsettings.json</code> under the
+            <format style="bold">required</format>
+            key <code>Base64Converter</code>. The following settings are available:
+        </p>
+        <table>
+            <tr>
+                <td>Property Name</td>
+                <td>Type</td>
+                <td>Description</td>
+                <td>Default</td>
+            </tr>
+            <tr>
+                <td><code>HttpClientName</code></td>
+                <td><code>string</code></td>
+                <td>The name of the externally configured HttpClient to use for all connections.</td>
+                <td><code>Base64Converter</code></td>
+            </tr>
+            <tr>
+                <td><code>UpstreamImageAssetBaseUri</code></td>
+                <td><code>string</code></td>
+                <td>The full base-URL or base-directory for your upstream image assets.</td>
+                <td><code>http://localhost</code></td>
+            </tr>
+            <tr>
+                <td><code>UpstreamImageRetrievalTimeoutSeconds</code></td>
+                <td><code>int</code></td>
+                <td>Number of seconds to try retrieving the image before cancelling the task.</td>
+                <td><code>5</code></td>
+            </tr>
+            <tr>
+                <td><code>EnableBase64Cache</code></td>
+                <td><code>true</code></td>
+                <td>Whether to use the in-memory cache.</td>
+                <td><code>true</code></td>
+            </tr>
+            <tr>
+                <td><code>NoExpiry</code></td>
+                <td><code>false</code></td>
+                <td>If <code>true</code>, cached items will NEVER expire.</td>
+                <td><code>false</code></td>
+            </tr>
+            <tr>
+                <td><code>Base64CacheExpiryMinutes</code></td>
+                <td><code>int</code></td>
+                <td>Number of minutes to cache the image in memory.</td>
+                <td><code>1440</code></td>
+            </tr>
+        </table>
+        <note>
+            <code>EnableBase64Cache</code> and <code>NoExpiry</code> can be overridden per-request.
+        </note>
+        <p>
+            <code>UpstreamImageAssetBaseUri</code> can be a local directory or a remote URL.
+        </p>
+        <list>
+            <li>
+                A trailing slash (<code>/</code>) will be added to the base URI if it is missing.
+            </li>
+            <li>
+                Filenames are appended to this base URI when retrieving images.
+                <list>
+                    <li>
+                        The base URI should be a common parent directory if you are using local files.
+                    </li>
+                    <li>
+                        The base URI should be the base URL if you are using remote files.
+                    </li>
+                </list>
+            </li>
+            <li>
+                Filename are not restricted to only being a file name. You can use entire paths relative to the base
+                URI. If doing this, ensure that the path ends in the actual file to be retrieved.
+            </li>
+        </list>
+        <warning>
+            You MUST supply a valid URI scheme (<code>http://</code>, <code>https://</code>, <code>file://</code>)
+            in the <code>UpstreamImageAssetBaseUri</code> setting. If using <code>http</code> or <code>https</code>,
+            invalid URLs will throw a <code>UriFormatException</code>. If using <code>file</code>, a missing or
+            invalid path will throw a <code>DirectoryNotFoundException</code>.
+        </warning>
+    </snippet>
+
+    <snippet id="LibraryDI">
+        <p>
+            The library includes a <code>ServiceCollection</code> extension method to simplify its registration with the
+            dependency injection container. Include the following in your <code>Program.cs</code>:
+        </p>
+        <list type="decimal">
+            <li>
+                <p>Add the following <code>using</code> statement:</p>
+                <code-block lang="c#">
+                    using Base64Converter.DependencyInjection;
+                </code-block>
+            </li>
+            <li>
+                <p>Add the following lines anywhere before <code>builder.Build()</code>:</p>
+                <code-block lang="c#">
+                    builder.Services.AddHttpClient(&quot;Base64Converter&quot;);
+                    builder.Services.AddImageToBase64(builder.Configuration);
+                </code-block>
+                <warning>
+                    The <code>AddHttpClient()</code> method must be called before <code>AddImageToBase64()</code> to
+                    ensure that the <code>HttpClient</code> is available for injection.
+                </warning>
+                <tip>
+                    You can reuse/share an existing `HTTPClient` with this library if you want. Also, the `HttpClient`
+                    can be customized with headers, delegating handlers, etc. The specifics on how to do this are beyond
+                    the scope of this document.
+                </tip>
+            </li>
+        </list>
+    </snippet>
+
 </topic>
