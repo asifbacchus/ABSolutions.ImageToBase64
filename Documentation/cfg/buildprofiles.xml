@@ -10,6 +10,20 @@
         <color-preset>contrast</color-preset>
         <header-logo>logo.svg</header-logo>
     </variables>
+    <build-profile instance="library">
+        <variables>
+            <product-web-url>https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64</product-web-url>
+            <download-title>Project Repo</download-title>
+            <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
+            <showDownloadButton>true</showDownloadButton>
+            <noindex-content>false</noindex-content>
+        </variables>
+        <footer>
+            <copyright>A-B Solutions/Asif Bacchus 2024</copyright>
+            <link href="https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64">Project repository</link>
+            <link href="#">Product NuGet page</link>
+        </footer>
+    </build-profile>
     <build-profile instance="blazorComponent">
         <variables>
             <product-web-url>https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64.BlazorComponent

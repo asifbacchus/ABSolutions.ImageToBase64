@@ -4,9 +4,9 @@
 
 <instance-profile id="blazorComponent"
                   name="ImageToBase64-BlazorComponent"
-                  start-page="README.md">
+                  start-page="Blazor_README.md">
 
-    <toc-element topic="README.md"/>
-    <toc-element topic="Quickstart.md"/>
-    <toc-element topic="Build-a-Demo-Blazor-Site.md"/>
+    <toc-element topic="Blazor_README.md"/>
+    <toc-element topic="Blazor_Quickstart.md"/>
+    <toc-element topic="Blazor_Build-a-Demo-Blazor-Site.md"/>
 </instance-profile>

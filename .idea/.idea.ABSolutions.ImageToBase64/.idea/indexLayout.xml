@@ -4,6 +4,7 @@
     <attachedFolders>
       <Path>ABSolutions.ImageToBase64.BlazorComponent.Documentation</Path>
       <Path>ABSolutions.ImageToBase64.Documentation</Path>
+      <Path>Documentation</Path>
     </attachedFolders>
     <explicitIncludes />
     <explicitExcludes />
