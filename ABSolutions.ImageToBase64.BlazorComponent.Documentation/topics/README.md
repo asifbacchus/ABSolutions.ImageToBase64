@@ -34,6 +34,24 @@ This library is targeted for .NET Core 8 and has the following dependencies:
 
 ## Using this library
 
+### Usage example
+
+Since this is a component, you can use it in your Blazor pages like this:
+
+```html
+@page "/my-page-with-an-image"
+@using ABSolutions.ImageToBase64.BlazorComponent
+
+<h1>My Page with an Image</h1>
+<p>The image below is embedded using a Base64-encoded string</p>
+<Base64Image Alt="Base64-encoded image" FileName="my-image.jpg"/>
+```
+
+> This example omits backend configuration, etc. This is just a sample showing how easily the component itself
+> (`Base64Image` tag) can integrate with your projects.
+
+### Detailed usage information
+
 Please refer to the following topics for more information about using this library:
 
 - [](Quickstart.md)
