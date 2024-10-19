@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="product" value="Writerside"/>
+    <var name="ProjectName" value="ABSolutions.ImageToBase64"/>
+    <var name="ProjectLibraryName" value="ABSolutions.ImageToBase64"/>
+    <var name="ProjectBlazorName" value="ABSolutions.ImageToBase64.BlazorComponent"/>
+    <var name="AuthorName" value="A-B Solutions (Asif Bacchus)"/>
+    <var name="AuthorEmail" value="asif@a-b.solutions"/>
+    <var name="GitRepo" value="https://github.com/asifbacchus/ABSolutions.ImageToBase64"/>
+    <var name="DocUrl_Library" value="https://a-b.solutions/documentation/nuget/ImageToBase64-Library"/>
+    <var name="DocUrl_Blazor" value="https://a-b.solutions/documentation/nuget/ImageToBase64-BlazorComponent"/>
 </vars>
