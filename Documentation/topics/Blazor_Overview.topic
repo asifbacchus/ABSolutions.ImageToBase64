@@ -83,7 +83,7 @@
             <p>Please refer to the following topics for more information about using this library:</p>
             <list>
                 <li><a href="Blazor_Quickstart.md"/></li>
-                <li><a href="Blazor_Build-a-Demo-Blazor-Site.md"/></li>
+                <li><a href="Blazor_Build-a-demo-blazor-site.md"/></li>
             </list>
             <p>
                 You can also inspect the <code>%ProjectName%.Demo.Blazor</code> project in the

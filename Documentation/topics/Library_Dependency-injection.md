@@ -1,4 +1,4 @@
-# Dependency Injection
+# Dependency injection
 
 <link-summary>Explanation of how dependency injection is used by this library.</link-summary>
 <card-summary>Explanation of how dependency injection is used by this library.</card-summary>
@@ -27,6 +27,6 @@ builder.Services.AddImageToBase64(builder.Configuration);
 
 <seealso style="cards">
     <category ref="related">
-        <a href="Library_HTTP-Client.md"/>
+        <a href="Library_HTTP-client.md"/>
     </category>
 </seealso>

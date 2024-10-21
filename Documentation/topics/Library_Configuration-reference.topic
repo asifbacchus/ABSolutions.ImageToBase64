@@ -30,7 +30,7 @@
             <def id="library-config-httpClientName" title="string:HttpClientName">
                 <p>
                     Named HTTP client to use/create to retrieve upstream remote images for conversion.
-                    <a href="Library_HTTP-Client.md">[more info]</a>
+                    <a href="Library_HTTP-client.md">[more info]</a>
                 </p>
                 <p>
                     <format style="bold">Default:</format>
@@ -109,7 +109,7 @@
         </deflist>
         <tip>
             <code>EnableBase64Cache</code> and <code>NoExpiry</code> can be overriden on a per-call basis. Please see
-            <a href="Library_Calling-the-Library.md"/> for more information.
+            <a href="Library_Calling-the-library.md"/> for more information.
         </tip>
     </chapter>
 

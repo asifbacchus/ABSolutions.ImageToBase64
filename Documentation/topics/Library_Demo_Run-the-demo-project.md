@@ -1,4 +1,4 @@
-# Run the Project
+# Run the demo project
 
 <link-summary>API Demo: Running the project to see how this library works.</link-summary>
 <card-summary>Run the demo project to see how this library works.</card-summary>

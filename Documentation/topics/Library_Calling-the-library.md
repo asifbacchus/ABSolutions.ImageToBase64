@@ -1,4 +1,4 @@
-# Calling the Library
+# Calling the library
 
 <link-summary>How to call this library to convert images to Base64 strings.</link-summary>
 <card-summary>Discussion of how to call this library to convert images to Base64 strings.</card-summary>

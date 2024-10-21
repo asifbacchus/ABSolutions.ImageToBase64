@@ -1,4 +1,4 @@
-# Prerequisites and Configuration
+# Prerequisites and configuration
 
 <link-summary>API Demo: Setting up and configuring the library for use in the API demo.</link-summary>
 <card-summary>Learn how to set-up and configure the library for use in the API demo project.</card-summary>

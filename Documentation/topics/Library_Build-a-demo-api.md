@@ -1,4 +1,4 @@
-# Build a Demo API
+# Build a demo API
 
 <link-summary>Learn about this library by building an API that uses it.</link-summary>
 <card-summary>Step-by-step walkthrough building an API that uses this library.</card-summary>

@@ -1,4 +1,4 @@
-# Build a Demo Blazor Site
+# Build a demo Blazor site
 
 <link-summary>Use the Blazor component in a Blazor project.</link-summary>
 <card-summary>Step-by-step walkthrough building a demo Blazor site and using this component.</card-summary>
