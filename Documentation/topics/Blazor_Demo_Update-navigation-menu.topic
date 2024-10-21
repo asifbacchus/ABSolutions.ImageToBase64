@@ -37,13 +37,16 @@
                     markup into the box at the top of the page.
                 </step>
                 <step>Click the 'Encode' button to get the URL-encoded version of the SVG markup.</step>
+                <step>Change <code>currentColor</code> to <code>white</code>. This ensures the icon's colour matches the
+                    demo site scheme.
+                </step>
                 <step>Copy the URL-encoded SVG markup.</step>
             </procedure>
             <tip>
                 If you don't want to do the above, and you're happy with my icon choice, you can trust me and just use
                 the following string:<br/>
                 <code-block lang="plain text">
-                    %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-image-fill%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20d%3D%22M.002%203a2%202%200%200%201%202-2h12a2%202%200%200%201%202%202v10a2%202%200%200%201-2%202h-12a2%202%200%200%201-2-2zm1%209v1a1%201%200%200%200%201%201h12a1%201%200%200%200%201-1V9.5l-3.777-1.947a.5.5%200%200%200-.577.093l-3.71%203.71-2.66-1.772a.5.5%200%200%200-.63.062zm5-6.5a1.5%201.5%200%201%200-3%200%201.5%201.5%200%200%200%203%200%22%2F%3E%0A%3C%2Fsvg%3E
+                    %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22white%22%20class%3D%22bi%20bi-image-fill%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20d%3D%22M.002%203a2%202%200%200%201%202-2h12a2%202%200%200%201%202%202v10a2%202%200%200%201-2%202h-12a2%202%200%200%201-2-2zm1%209v1a1%201%200%200%200%201%201h12a1%201%200%200%200%201-1V9.5l-3.777-1.947a.5.5%200%200%200-.577.093l-3.71%203.71-2.66-1.772a.5.5%200%200%200-.63.062zm5-6.5a1.5%201.5%200%201%200-3%200%201.5%201.5%200%200%200%203%200%22%2F%3E%0A%3C%2Fsvg%3E
                 </code-block>
             </tip>
         </p>
