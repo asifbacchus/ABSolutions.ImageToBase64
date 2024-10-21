@@ -6,4 +6,15 @@
         <accepts>page.html</accepts>
     </rule>
     -->
+    <rule id="66828d23">
+        <description>Created after removal of "ABSolutions.ImageToBase64: Library for .NET Core" from
+            ImageToBase64-Library
+        </description>
+        <accepts>Library_README.html</accepts>
+    </rule>
+    <rule id="747ca19a">
+        <description>
+            <![CDATA[Created after removal of "<Library_Create-Endpoints.md>" from ImageToBase64-Library]]></description>
+        <accepts>Library_Create-Endpoints.html</accepts>
+    </rule>
 </rules>

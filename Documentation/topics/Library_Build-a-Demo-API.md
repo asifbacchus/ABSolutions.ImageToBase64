@@ -5,11 +5,12 @@
 <web-summary>Build an API to learn how to use ABSolutions.ImageToBase64 .NET library.</web-summary>
 
 The best way to understand how this library works and how to use it is to review the
-`ABSolutions.ImageToBase64.Demo.Api` project. The project is a minimal API that has two endpoints of interest:
+`%ProjectName%.Demo.Api` project in the [git repo](%GitRepo%). The project is a minimal API that has two endpoints of
+interest:
 
 1. `GET /base64`: Returns the Base64 representation of a random remote image.
-2. `GET /picture`: Retrieves a random remote image, converts it to a Base64 string, and returns a webpage displaying
-   that image using the embedded Base64 string.
+2. `GET /picture`: Retrieves a random remote image, converts it to a Base64-encoded string, and returns a webpage
+   displaying that image using the embedded Base64-encoded string.
 
 While I think the code is pretty easy to follow, I know some people understand better by building things themselves. So,
 I'll walk you through the process of building the demo project in the the pages contained in this section. By the end, I

@@ -66,5 +66,5 @@ that something has gone wrong. The default image looks like this:
 
 ![Default Image](defaultBase64ReturnImage.png)
 
-The image is 512px x 512px `png` file of a black exclamation mark surrounded by a black outline of a rounded triangle.
-The image has a transparent background.
+The image is Base64-encoded 512x512 pixel image of a black exclamation mark surrounded by a black outline of a rounded
+triangle. The image has a transparent background.

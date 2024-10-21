@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Library_Demo_Create-endpoints"
+       title="Create endpoints"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <link-summary>API Demo: Creating endpoints to show different library uses.</link-summary>
+    <card-summary>Build 2 endpoints to see variations of how this library can be used.</card-summary>
+    <web-summary>ABSolutions.ImageToBase64 API demo: Building the request endpoints.</web-summary>
+
+    <p>
+        We'll be making three endpoints for this demo project: <code>root</code>, <code>base64</code>, and
+        <code>picture</code>. To keep things simple, we'll just put all the endpoints in the <code>Program.cs</code>
+        file. Add the following sections after the <code>builder.Build();</code> line.
+    </p>
+    <tabs>
+        <tab id="library-demo-endpoint-root" title="root">
+            <p>
+                Modify the existing `Get: /` endpoint to return a helpful message.
+            </p>
+            <code-block include-lines="20" lang="c#" src="Library_Demo_Program.cs"/>
+            <p>
+                This will modify our 'homepage' to display a helpful message about the available endpoints and how to
+                use the `cache` query parameter.
+            </p>
+        </tab>
+        <tab id="library-demo-endpoint-base64" title="base64">
+            <code-block include-lines="22-37" lang="c#" src="Library_Demo_Program.cs"/>
+            <p>
+                This endpoint returns the Base64 representation of a random remote image. The <code>cache</code> query
+                parameter is optional:
+            </p>
+            <include element-id="LibraryDemoEndpointCacheQueryParam" from="Shared_Snippets.topic"/>
+            <p>
+                The <code>cache</code> parameter defaults to <code>false</code> so that a new image is fetched from the
+                remote server on reload. This is only to help you confirm that new Base64 strings are being generated.
+            </p>
+        </tab>
+        <tab title="picture">
+            <code-block include-lines="39-57" lang="c#" src="Library_Demo_Program.cs">
+            <p>
+                This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage
+                displaying that image using the embedded Base64 string. The <code>cache</code> query parameter is
+                optional:
+            </p>
+            <include element-id="LibraryDemoEndpointCacheQueryParam" from="Shared_Snippets.topic"/>
+            <p>
+                The <code>cache</code> parameter defaults to <code>false</code> so that a new image is fetched from the
+                remote server on reload. This is only to help you confirm that new Base64 strings are being generated.
+            </p>
+        </tab>
+    </tabs>
+
+    <chapter id="the-customHtmlResult-class">
+        <title>
+            The <code>CustomHtmlResult</code> class
+        </title>
+        <p>
+            Notice in the <code>picture</code> endpoint we are returning a <code>CustomHtmlResult</code>. This is a
+            custom class that we'll need to create. Add the following class to the project.
+        </p>
+        <code-block lang="c#" src="Library_Demo_CustomHtmlResult.cs"/>
+        <p>
+            This class allows us to return a custom HTML string as a response as opposed to text or JSON. Without this
+            class, the <code>htmlTemplate</code> in the <code>picture</code> endpoint would be returned as plain-text
+            instead of HTML.
+        </p>
+        <note>
+            Explaining this class and the <code>IResult</code> type is beyond the scope of this document.
+        </note>
+    </chapter>
+
+</topic>

@@ -1,0 +1,10 @@
+{
+  "Base64Converter": {
+    "HttpClientName": "Base64Converter",
+    "UpstreamImageAssetBaseUri": "http://localhost",
+    "UpstreamImageRetrievalTimeoutSeconds": 5,
+    "EnableBase64Cache": true,
+    "NoExpiry": false,
+    "Base64CacheExpiryMinutes": 1440
+  }
+}

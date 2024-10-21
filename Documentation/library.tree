@@ -4,17 +4,17 @@
 
 <instance-profile id="library"
                   name="ImageToBase64-Library"
-                  start-page="Library_README.md">
+                  start-page="Library_Overview.topic">
 
-    <toc-element topic="Library_README.md"/>
+    <toc-element topic="Library_Overview.topic"/>
     <toc-element topic="Library_Quickstart.md"/>
-    <toc-element topic="Library_Configuration-Reference.md"/>
+    <toc-element topic="Library_Configuration-reference.topic"/>
     <toc-element topic="Library_Dependency-Injection.md"/>
     <toc-element topic="Library_HTTP-Client.md"/>
     <toc-element topic="Library_Calling-the-Library.md"/>
     <toc-element topic="Library_Build-a-Demo-API.md">
         <toc-element topic="Library_Prerequisites-and-Configuration.md"/>
-        <toc-element topic="Library_Create-Endpoints.md"/>
+        <toc-element topic="Library_Demo_Create-endpoints.topic"/>
         <toc-element topic="Library_Run-the-Project.md"/>
     </toc-element>
 </instance-profile>

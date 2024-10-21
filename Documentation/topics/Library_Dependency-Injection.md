@@ -9,10 +9,12 @@ extension method that will register the in-memory cache and converter services f
 reference to the configuration container to read settings from `appsettings.json`.
 
 While the extension method registers all services specific to this library, you **MUST** still register a named
-`HttpClient` provider for the library to use. The named instance must match the name of the `HttpClient` configuration
+`HttpClient` provider for the library to use. The named instance **MUST** match the name of the `HttpClient`
+configuration
 property the `appsettings.json` file.
 
-> The `HttpClient` provider must be registered before the `AddImageToBase64` extension method is called.
+> If the name of the `HttpClient` does not match the one specified in the `HttpClient` library configuration, a default
+`HttpClient` instance will be used instead of your customized one!
 > {style="warning"}
 
 Here's an example, using default values, of how you can handle all necessary dependency injection in your `program.cs`.
@@ -25,6 +27,6 @@ builder.Services.AddImageToBase64(builder.Configuration);
 
 <seealso style="cards">
     <category ref="related">
-        <a href="HTTP-Client.md">HTTP Client</a>
+        <a href="Library_HTTP-Client.md"/>
     </category>
 </seealso>

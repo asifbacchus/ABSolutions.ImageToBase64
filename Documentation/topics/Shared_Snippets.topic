@@ -144,14 +144,30 @@
                     builder.Services.AddImageToBase64(builder.Configuration);
                 </code-block>
                 <warning>
-                    The <code>AddHttpClient()</code> method must be called before <code>AddImageToBase64()</code> to
-                    ensure that the <code>HttpClient</code> is available for injection.
+                    Please ensure the name you specify for the <code>HttpClient</code> matches the one specified in the
+                    library configuration in <code>appsettings.json</code>. If this is not the case, customizations in
+                    your named <code>HttpClient</code> will not be used!
                 </warning>
                 <tip>
                     You can reuse/share an existing `HTTPClient` with this library if you want. Also, the `HttpClient`
                     can be customized with headers, delegating handlers, etc. The specifics on how to do this are beyond
                     the scope of this document.
                 </tip>
+            </li>
+        </list>
+    </snippet>
+
+    <snippet id="LibraryDemoEndpointCacheQueryParam">
+        <list>
+            <li>
+                <code>?cache=false</code>: Image will be retrieved from the upstream source each time the endpoint
+                is called. This is the
+                <format style="bold">default</format>
+                value for demonstration purposes.
+            </li>
+            <li>
+                <code>?cache=true</code>: Image will be retrieved from the upstream source once and then cached for
+                the duration specified in `appsettings.json`.
             </li>
         </list>
     </snippet>
