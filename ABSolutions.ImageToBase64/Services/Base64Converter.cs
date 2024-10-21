@@ -103,9 +103,6 @@ public class Base64Converter : IBase64Converter
 
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
-            string? responseContent = null;
-            var usingDefault = false;
-
             // set configuration options
             var cache = useCache ?? _configuration.EnableBase64Cache;
             var expiry = noExpiry ?? _configuration.NoExpiry;
@@ -114,40 +111,33 @@ public class Base64Converter : IBase64Converter
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                if (cache && filename is not null)
+                _logger?.LogDebug("Retrieving image {Filename} as Base64 string",
+                    filename ?? "<filename not specified>");
+
+                var (isValidFilename, fileExtension, filenameErrorMessage) = ValidateFilename(filename);
+                if (!isValidFilename)
                 {
-                    var cacheResponse = await GetCachedBase64ObjectAsync(filename, loggingCorrelationValue);
-                    responseContent = cacheResponse?.Base64String;
+                    _logger?.LogWarning("Filename is invalid ({FilenameValidationMessage}), using default image",
+                        filenameErrorMessage);
+                    return ErrorReturnValue;
                 }
 
-                responseContent ??= filename is null
-                    ? null
-                    : _accessLocalFiles switch
-                    {
-                        true => await GetImageFromLocalFileAsync(filename, loggingCorrelationValue, cancellationToken),
-                        false => await GetImageFromUpstreamAsync(filename, loggingCorrelationValue, cancellationToken)
-                    };
+                var responseContent = cache
+                    ? (await GetCachedBase64ObjectAsync(filename!, loggingCorrelationValue))?.Base64String ?? null
+                    : null;
+                responseContent ??= _accessLocalFiles switch
+                {
+                    true => await GetImageFromLocalFileAsync(filename!, loggingCorrelationValue, cancellationToken),
+                    false => await GetImageFromUpstreamAsync(filename!, loggingCorrelationValue, cancellationToken)
+                };
 
                 if (responseContent is null)
                 {
                     _logger?.LogWarning("No image asset found for {Filename}, using default image", filename);
-                    responseContent = DefaultBase64String;
-                    usingDefault = true;
+                    return ErrorReturnValue;
                 }
 
-                var fileExtension = Path.GetExtension(filename!).TrimStart('.');
-                if (string.IsNullOrEmpty(fileExtension))
-                {
-                    _logger?.LogWarning(
-                        "Filename {Filename} has no extension, unable to determine image type: using default image",
-                        filename);
-                    responseContent = DefaultBase64String;
-                    fileExtension = DefaultFileExtension;
-                    usingDefault = true;
-                }
-
-                // update cache with image as Base64 string, unless disabled or using default image
-                if (cache && !usingDefault)
+                if (cache)
                     await UpdateCachedBase64ObjectAsync(filename!, responseContent, expiry, loggingCorrelationValue);
 
                 return $"data:image/{fileExtension};base64,{responseContent}";
@@ -188,6 +178,23 @@ public class Base64Converter : IBase64Converter
                 return ErrorReturnValue;
             }
         }
+    }
+
+    /// <summary>
+    ///     Validate the filename to ensure it is not null or empty and has a file extension.
+    /// </summary>
+    /// <param name="filename">Filename to validate.</param>
+    /// <returns>True if valid, False if invalid.</returns>
+    private static (bool, string, string) ValidateFilename(string? filename)
+    {
+        if (string.IsNullOrWhiteSpace(filename))
+            return (false, string.Empty, "no filename specified");
+
+        var fileExtension = Path.GetExtension(filename).TrimStart('.');
+        if (string.IsNullOrEmpty(fileExtension))
+            return (false, fileExtension, "filename has no extension");
+
+        return (true, string.Empty, string.Empty);
     }
 
     /// <summary>
