@@ -11,7 +11,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddImageToBase64(builder.Configuration);
 builder.Services.AddHttpClient(
     builder.Configuration.GetRequiredSection(Base64ConverterConfiguration.AppSettingsKey)
-        .Get<Base64ConverterConfiguration>()?.HttpClientName ?? "Base64ConverterClient", client =>
+        .Get<Base64ConverterConfiguration>()?.HttpClientName ?? "Base64Converter", client =>
     {
         client.DefaultRequestHeaders.Add("Accept", "image/*");
         client.DefaultRequestHeaders.UserAgent.ParseAdd("ABSolutions.ImageToBase64");
