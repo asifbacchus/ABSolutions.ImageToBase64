@@ -2,7 +2,7 @@
 
 @code {
     private string? _base64Image;
-    private Dictionary<string, object> _imageAttributes = [];
+    private readonly Dictionary<string, object> _imageAttributes = [];
 
     [Inject] private IBase64Converter Base64Converter { get; set; } = default!;
 
@@ -31,9 +31,12 @@
             _imageAttributes.Add("aria-label", AriaLabel);
         if (!string.IsNullOrWhiteSpace(Class))
             _imageAttributes.Add("class", Class);
-        _imageAttributes = _imageAttributes
-            .Concat(Attributes)
-            .ToDictionary(pair => pair.Key, pair => pair.Value);
+
+        // add user-supplied attributes iif they don't already exist
+        foreach (var (key, value) in Attributes)
+        {
+            _imageAttributes.TryAdd(key, value);
+        }
 
         _base64Image = await Base64Converter.GetImageAsBase64Async(Filename, UseCache, NoExpiry, CancellationToken);
         await Base64ImageChanged.InvokeAsync(!string.IsNullOrWhiteSpace(_base64Image));
