@@ -91,12 +91,16 @@ public class Base64Converter : IBase64Converter
     }
 
     public async Task<string> GetImageAsBase64Async(string? filename, bool? useCache = null, bool? noExpiry = null,
-        CancellationToken cancellationToken = default)
+        string loggingCorrelationValue = "", CancellationToken cancellationToken = default)
     {
         var logContexts = new Dictionary<string, object>
         {
             {"MethodName", nameof(GetImageAsBase64Async)}
         };
+        if (!string.IsNullOrWhiteSpace(_configuration.LoggingCorrelationIdentifier) &&
+            !string.IsNullOrWhiteSpace(loggingCorrelationValue))
+            logContexts.Add(_configuration.LoggingCorrelationIdentifier, loggingCorrelationValue);
+
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
             string? responseContent = null;
@@ -112,7 +116,7 @@ public class Base64Converter : IBase64Converter
 
                 if (cache && filename is not null)
                 {
-                    var cacheResponse = await GetCachedBase64ObjectAsync(filename);
+                    var cacheResponse = await GetCachedBase64ObjectAsync(filename, loggingCorrelationValue);
                     responseContent = cacheResponse?.Base64String;
                 }
 
@@ -120,8 +124,8 @@ public class Base64Converter : IBase64Converter
                     ? null
                     : _accessLocalFiles switch
                     {
-                        true => await GetImageFromLocalFileAsync(filename, cancellationToken),
-                        false => await GetImageFromUpstreamAsync(filename, cancellationToken)
+                        true => await GetImageFromLocalFileAsync(filename, loggingCorrelationValue, cancellationToken),
+                        false => await GetImageFromUpstreamAsync(filename, loggingCorrelationValue, cancellationToken)
                     };
 
                 if (responseContent is null)
@@ -144,7 +148,7 @@ public class Base64Converter : IBase64Converter
 
                 // update cache with image as Base64 string, unless disabled or using default image
                 if (cache && !usingDefault)
-                    await UpdateCachedBase64ObjectAsync(filename!, responseContent, expiry);
+                    await UpdateCachedBase64ObjectAsync(filename!, responseContent, expiry, loggingCorrelationValue);
 
                 return $"data:image/{fileExtension};base64,{responseContent}";
             }
@@ -190,17 +194,23 @@ public class Base64Converter : IBase64Converter
     ///     Retrieve an image asset from an upstream source and convert it to a Base64 string representation.
     /// </summary>
     /// <param name="filename">Filename to retrieve from the base URL.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="loggingCorrelationValue">Value to use for logging correlation. Default: empty string.</param>
+    /// <param name="cancellationToken">Cancellation token. Default: None.</param>
     /// <returns>
     ///     Base64 string representation of the image file data or null if any errors encountered or the task is
     ///     cancelled.
     /// </returns>
-    private async ValueTask<string?> GetImageFromUpstreamAsync(string filename, CancellationToken cancellationToken)
+    private async ValueTask<string?> GetImageFromUpstreamAsync(string filename, string loggingCorrelationValue = "",
+        CancellationToken cancellationToken = default)
     {
         var logContexts = new Dictionary<string, object>
         {
             {"MethodName", nameof(GetImageFromUpstreamAsync)}
         };
+        if (!string.IsNullOrWhiteSpace(_configuration.LoggingCorrelationIdentifier) &&
+            !string.IsNullOrWhiteSpace(loggingCorrelationValue))
+            logContexts.Add(_configuration.LoggingCorrelationIdentifier, loggingCorrelationValue);
+
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
             _logger?.LogDebug("Requesting {Filename} from {UpstreamAssetSource}", filename, _httpBaseAddress);
@@ -257,17 +267,23 @@ public class Base64Converter : IBase64Converter
     ///     Retrieve an image asset from the local file system and convert it to a Base64 string representation.
     /// </summary>
     /// <param name="filename">Filename within the base directory to retrieve.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="loggingCorrelationValue">Value to use for logging correlation. Default: empty string.</param>
+    /// <param name="cancellationToken">Cancellation token. Default: None.</param>
     /// <returns>
     ///     Base64 string representation of the image file data or null if any errors encountered or the task is
     ///     cancelled.
     /// </returns>
-    private async ValueTask<string?> GetImageFromLocalFileAsync(string filename, CancellationToken cancellationToken)
+    private async ValueTask<string?> GetImageFromLocalFileAsync(string filename, string loggingCorrelationValue = "",
+        CancellationToken cancellationToken = default)
     {
         var logContexts = new Dictionary<string, object>
         {
             {"MethodName", nameof(GetImageFromLocalFileAsync)}
         };
+        if (!string.IsNullOrWhiteSpace(_configuration.LoggingCorrelationIdentifier) &&
+            !string.IsNullOrWhiteSpace(loggingCorrelationValue))
+            logContexts.Add(_configuration.LoggingCorrelationIdentifier, loggingCorrelationValue);
+
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
             _logger?.LogDebug("Requesting {Filename} from local file system at {UpstreamAssetSource}", filename,
@@ -312,13 +328,19 @@ public class Base64Converter : IBase64Converter
     ///     Retrieves a Base64CachedObject from the cache.
     /// </summary>
     /// <param name="filename">Filename identifier to search for in the cache.</param>
+    /// <param name="loggingCorrelationValue">Value to use for log correlation. Default: empty string.</param>
     /// <returns>Base64CachedObject if found, null otherwise</returns>
-    private async ValueTask<Base64CachedObject?> GetCachedBase64ObjectAsync(string filename)
+    private async ValueTask<Base64CachedObject?> GetCachedBase64ObjectAsync(string filename,
+        string loggingCorrelationValue = "")
     {
         var logContexts = new Dictionary<string, object>
         {
             {"MethodName", nameof(GetCachedBase64ObjectAsync)}
         };
+        if (!string.IsNullOrWhiteSpace(_configuration.LoggingCorrelationIdentifier) &&
+            !string.IsNullOrWhiteSpace(loggingCorrelationValue))
+            logContexts.Add(_configuration.LoggingCorrelationIdentifier, loggingCorrelationValue);
+
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
             _logger?.LogDebug("Checking cache for Base64 string corresponding to {Filename}", filename);
@@ -342,13 +364,19 @@ public class Base64Converter : IBase64Converter
     /// <param name="filename">Filename identifier for this Base64 string.</param>
     /// <param name="base64">Base64 string string to store in the cache.</param>
     /// <param name="noExpiry">If true, DO NOT set an expiry time for this cache entry. Default: False.</param>
+    /// <param name="loggingCorrelationValue">Value to use for log correlation. Default: empty string.</param>
     /// <returns>Boolean success status of updating the cache.</returns>
-    private async ValueTask UpdateCachedBase64ObjectAsync(string filename, string base64, bool noExpiry = false)
+    private async ValueTask UpdateCachedBase64ObjectAsync(string filename, string base64, bool noExpiry = false,
+        string loggingCorrelationValue = "")
     {
         var logContexts = new Dictionary<string, object>
         {
             {"MethodName", nameof(UpdateCachedBase64ObjectAsync)}
         };
+        if (!string.IsNullOrWhiteSpace(_configuration.LoggingCorrelationIdentifier) &&
+            !string.IsNullOrWhiteSpace(loggingCorrelationValue))
+            logContexts.Add(_configuration.LoggingCorrelationIdentifier, loggingCorrelationValue);
+
         using (_logger?.BeginScope(logContexts.Concat(_baseLogContexts)))
         {
             _logger?.LogDebug("Updating cached Base64 string for {Filename}", filename);
