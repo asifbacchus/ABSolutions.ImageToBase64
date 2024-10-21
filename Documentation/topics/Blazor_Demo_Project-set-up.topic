@@ -59,15 +59,14 @@
             </p>
             <code-block include-lines="11-17" lang="c#" src="Blazor_Demo_Program.cs"/>
             <p>
-                This can be placed anywhere before the <code>builder.Build()</code> line.
+                This can be placed anywhere in <code>Program.cs</code> before the <code>builder.Build()</code> line.
             </p>
         </chapter>
         <chapter id="base_64_image_service" title="ImageToBase64 service">
             <p>
-                We'll use the <code>ImageToBase64</code> service extension method to register the backend library. This
-                <emphasis>must</emphasis>
-                be done after the <code>builder.Services.AddHttpClient()</code> call we just
-                made. It should look like this:
+                We'll use the <code>ImageToBase64</code> service extension method to register the backend library. Just
+                as with the <code>HttpClient</code> service, this can registered anywhere in <code>Program.cs</code>
+                before the <code>builder.Build()</code> line. Here's an example of both services being registered:
             </p>
             <code-block include-lines="11-19" lang="c#" src="Blazor_Demo_Program.cs"/>
         </chapter>

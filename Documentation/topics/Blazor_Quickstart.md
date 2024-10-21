@@ -89,6 +89,6 @@ how they affect the component's behavior and the resulting HTML `<img>` tag.
 ## More information
 
 If you need more information about available options or features, please refer to the other pages in this documentation.
-Please also check out the [Blazor demo (github)](%GitRepo%) for an example of integrating this component on its own page
-in the default Blazor demo project/site. If you'd prefer a step-by-step walkthrough of constructing the demo project,
-please refer to the [](Blazor_Build-a-Demo-Blazor-Site.md) pages.
+Please also check out the `%ProjectName%.Demo.Blazor` demo project in the [git repo](%GitRepo%) for an example of
+integrating this component on its own page in the default Blazor demo project/site. If you'd prefer a step-by-step
+walkthrough of constructing the demo project, please refer to the [](Blazor_Build-a-demo-blazor-site.md) pages.
