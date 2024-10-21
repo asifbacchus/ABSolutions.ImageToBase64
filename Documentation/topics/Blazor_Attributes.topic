@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Blazor_Attributes"
+       title="Component attributes"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <link-summary>
+        Detailed explanation of all configuration attributes available for the ImageToBase64 Blazor component.
+    </link-summary>
+    <card-summary>
+        Detailed explanation of all configuration attributes available for the ImageToBase64 Blazor component.
+    </card-summary>
+    <web-summary>Configuration attributes for the ImageToBase64 Blazor component.</web-summary>
+
+    The ImageToBase64 Blazor component can be called with any (or none) of the following attributes to customize its
+    behavior.
+
+    <tip>
+        While not strictly required, the <code>Filename</code> attribute is obviously one that you will use nearly 100%
+        of the time. If a file name is not provided, the default image will be returned.
+    </tip>
+
+    <deflist collapsible="true">
+        <def id="blazor-attribute-filename" title="string:Filename">
+            The name of the image file to retrieve from the upstream source. This can be a relative path or just a file
+            name. In either case, remember that the <code>UpstreamImageAssetBaseUri</code> will be prepended. If no file
+            name is provided, the default image will be returned.
+        </def>
+        <def id="blazor-attribute-alt" title="string:Alt">
+            Alternate text for the image. This is used as the <code>alt</code> attribute in the generated
+            <code>img</code> tag.
+        </def>
+        <def id="blazor-attribute-ariaHidden" title="bool:AriaHidden">
+            Whether the image should be hidden from screen readers. This is used as the <code>aria-hidden</code>
+            attribute in the generated <code>img</code> tag.
+            <br/>
+            <format style="bold">Default:</format>
+            <code>true</code>
+        </def>
+        <def id="blazor-attribute-ariaDescription" title="string:AriaDescription">
+            Description of the image for screen readers. This is used as the <code>aria-description</code> attribute in
+            the generated <code>img</code> tag. If this attribute is omitted or is empty, no
+            <code>aria-description</code> attribute will be generated.
+            <br/>
+            <format style="bold">Default:</format>
+            empty
+        </def>
+        <def id="blazor-attribute-ariaLabel" title="string:AriaLabel">
+            Label for the image for screen readers. This is used as the <code>aria-label</code> attribute in the
+            generated <code>img</code> tag. If this attribute is omitted or is empty, no <code>aria-label</code>
+            attribute will be generated.
+            <br/>
+            <format style="bold">Default:</format>
+            empty
+        </def>
+        <def id="blazor-attribute-class" title="string:Class">
+            CSS class(es) to apply to the generated <code>img</code> tag. Multiple classes should be separated by spaces
+            just as in normal HTML. If this attribute is omitted or is empty, no <code>class</code> attribute will be
+            generated.
+            <br/>
+            <format style="bold">Default:</format>
+            empty
+        </def>
+        <def id="blazor-attribute-role" title="string:Role">
+            Role of the image for screen readers. This is used as the <code>role</code> attribute in the generated
+            <code>img</code> tag. For accessibility compliance reasons, this should never be null or missing. Thus, this
+            attribute defaults to <code>img</code>.
+            <br/>
+            <format style="bold">Default:</format>
+            <code>img</code>
+        </def>
+        <def id="blazor-attribute-useCache" title="bool:UseCache">
+            Whether to use the in-memory cache to store the Base64-encoded image.
+            <list>
+                <li>
+                    <code>false</code>:
+                    Upstream image will be retrieved and encoded every time the component is rendered.
+                </li>
+                <li>
+                    <code>true</code>:
+                    Base64-encoded image will be stored in the in-memory cache and reused on subsequent renders so long
+                    as the cache entry has not expired.
+                </li>
+                <li>
+                    <code>null</code> or not specified:
+                    Configuration value in <code>appsettings.json</code> will be used.
+                </li>
+            </list>
+            <br/>
+            <format style="bold">Default:</format>
+            <code>null</code>
+        </def>
+        <def id="blazor-attribute-noExpiry" title="bool:NoExpiry">
+            <list>
+                <li>
+                    <code>true</code>:
+                    Cached entry for this asset will never expire (unless the hosting application is restarted). This
+                    can be useful for images that are not expected to change.
+                </li>
+                <li>
+                    <code>false</code>, <code>null</code> or not specified:
+                    Configuration value in <code>appsettings.json</code> will be used.
+                </li>
+            </list>
+            <br/>
+            <format style="bold">Default:</format>
+            <code>null</code>
+        </def>
+        <def id="blazor-attribute-attributes" title="dictionary<string, object>:Attributes">
+            A
+            <emphasis>dictionary</emphasis>
+            of additional attributes to apply to the generated <code>img</code> tag.
+            <list>
+                <li>
+                    <code>key</code>:
+                    The attribute name.
+                </li>
+                <li>
+                    <code>value</code>:
+                    The attribute value.
+                </li>
+            </list>
+            This is completely free-form, thus, you can specify custom or even invalid attributes (
+            <emphasis>be careful!</emphasis>
+            ). Please note that these attributes are concatenated to those set by the other attributes listed on this
+            page. If this attribute is omitted or is empty, no additional attributes will be generated.
+            <br/>
+            <format style="bold">Default:</format>
+            empty set
+        </def>
+        <def id="blazor-attribute-cancellationToken" title="CancellationToken:CancellationToken">
+            A <code>CancellationToken</code> that can be used to cancel the operation of retrieving the image from the
+            upstream source. If this attribute is omitted or is <code>null</code>, no cancellation token will be used
+            and the task itself will not be cancellable.
+            <br/>
+            <format style="bold">Default:</format>
+            <code>null</code>
+        </def>
+    </deflist>
+
+
+</topic>

@@ -1,3 +1,0 @@
-# Attributes
-
-Start typing here...

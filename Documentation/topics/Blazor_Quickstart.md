@@ -82,7 +82,8 @@ As explained in the base library documentation and the configuration section abo
 convert its contents to a Base64-encoded string. The component will then return this as a properly constructed `<img>`
 tag that includes any relevant attributes passed to the component.
 
-Please refer to the [](Blazor_Attributes.md) page for more information about the many attributes you can configure and
+Please refer to the [](Blazor_Attributes.topic) page for more information about the many attributes you can configure
+and
 how they affect the component's behavior and the resulting HTML `<img>` tag.
 
 ## More information
