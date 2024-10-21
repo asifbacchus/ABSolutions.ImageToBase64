@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddImageToBase64(builder.Configuration);
 builder.Services.AddHttpClient(
     builder.Configuration.GetRequiredSection(Base64ConverterConfiguration.AppSettingsKey)
         .Get<Base64ConverterConfiguration>()?.HttpClientName ?? "Base64ConverterClient", client =>
@@ -14,6 +13,7 @@ builder.Services.AddHttpClient(
         client.DefaultRequestHeaders.Add("Accept", "image/*");
         client.DefaultRequestHeaders.UserAgent.ParseAdd("ABSolutions.ImageToBase64");
     });
+builder.Services.AddImageToBase64(builder.Configuration);
 
 var app = builder.Build();
 
