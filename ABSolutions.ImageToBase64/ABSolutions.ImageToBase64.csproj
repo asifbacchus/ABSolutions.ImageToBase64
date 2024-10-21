@@ -16,7 +16,7 @@
         <RepositoryUrl>https://github.com/asifbacchus/ABSolutions.ImageToBase64</RepositoryUrl>
         <TargetFramework>net8.0</TargetFramework>
         <Title>Image Base64 Converter</Title>
-        <Version>1.0.0-beta7</Version>
+        <Version>1.0.0-beta8</Version>
     </PropertyGroup>
 
     <ItemGroup>
