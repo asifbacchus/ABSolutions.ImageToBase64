@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Blazor_Demo_Project-set-up"
+       title="Demo project set-up"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <link-summary>
+        Blazor Demo: Set up the demo project and configure the backend library.
+    </link-summary>
+    <card-summary>
+        Add and configure the backend ImageToBase64 library in the Blazor demo project.
+    </card-summary>
+    <web-summary>
+        ABSolutions.ImageToBase64 Blazor demo: Project set-up and configuration.
+    </web-summary>
+
+    <chapter id="project_template" title="Project template">
+        <p>
+            Create a new <code>Blazor Web App</code> using .NET 8.0. The render mode is up to you, but
+            <code>Server</code> is easiest for this demo. Interactivity should be <code>per page/component</code>
+            (actually, we are only using static-rendering). We do not require authentication or docker for this demo.
+        </p>
+    </chapter>
+
+    <chapter id="nu_get_packages" title="NuGet packages">
+        <p>
+            Please install the <code>ABSolutions.ImageToBase64.BlazorComponent</code> package. This will automatically
+            install the backend library dependency.
+        </p>
+    </chapter>
+
+    <chapter id="library_configuration" title="Library configuration">
+        <p>
+            Since this component relies on the backend library to actually retrieve and convert images, we need to
+            configure that library. This is done via the <code>appsettings.json</code> file. If you need more detailed
+            instructions, please refer to the <a href="%DocUrl_Library%">library documentation</a>.
+        </p>
+        <code-block lang="c#" src="Blazor_Demo_appsettings.json"/>
+        <p>
+            All settings are default except the <code>UpstreamImageAssetBaseUri</code>. I have changed that to a free
+            image hosting service that will provide us with random pictures to convert and display.
+        </p>
+        <tip>
+            I have also changed the logging level for the <code>ABSolutions.ImageToBase64</code> namespace to <code>Debug</code>.
+            This is optional, but it will let you see more output on the console and better understand what is
+            happening.
+        </tip>
+    </chapter>
+
+    <chapter id="register_services" title="Register services">
+        Before we can use the component, we need to register the backend library with the DI container. We also need to
+        register a named HTTP Client.
+        <chapter id="http_client" title="HTTP Client">
+            <p>
+                We'll register a lightly-modified <code>HttpClient</code> using the default name our backend library is
+                expecting (<code>Base64Converter</code>).
+            </p>
+            <code-block include-lines="11-17" lang="c#" src="Blazor_Demo_Program.cs"/>
+            <p>
+                This can be placed anywhere before the <code>builder.Build()</code> line.
+            </p>
+        </chapter>
+        <chapter id="base_64_image_service" title="ImageToBase64 service">
+            <p>
+                We'll use the <code>ImageToBase64</code> service extension method to register the backend library. This
+                <emphasis>must</emphasis>
+                be done after the <code>builder.Services.AddHttpClient()</code> call we just
+                made. It should look like this:
+            </p>
+            <code-block include-lines="11-19" lang="c#" src="Blazor_Demo_Program.cs"/>
+        </chapter>
+    </chapter>
+</topic>

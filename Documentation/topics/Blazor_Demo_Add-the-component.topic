@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Blazor_Demo_Add-the-component"
+       title="Add the component"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <link-summary>
+        Blazor Demo: Add a page with the component to the demo project.
+    </link-summary>
+    <card-summary>
+        Add a new page to the Blazor demo project and include the component.
+    </card-summary>
+    <web-summary>
+        ABSolutions.ImageToBase64 Blazor demo: Add a page with the component.
+    </web-summary>
+
+    <p>
+        Now that we have the backend library and the project set up, we can add the component to a page. Since the
+        component makes use of the already injected HTTP client and library, there is no additional code that needs to
+        be added. Any needed configuration is handled via the <a href="Blazor_Attributes.topic">component attributes</a>.
+    </p>
+
+    <chapter id="create_the_page" title="Create the page">
+        <p>
+            Simply add a Blazor page to your project that calls the component along with a remote filename to retrieve,
+            convert and display. In the demo project, I call the component twice: once without the cache and once with
+            the cache. This lets you see the cache in action.
+        </p>
+        <p>
+            First, we need to configure the routing and reference our component:
+        </p>
+        <code-block include-lines="1-2" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <p>
+            Next, we'll add some markup to call the component:
+        </p>
+        <code-block include-lines="6-17" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <p>
+            Strictly speaking, that's all you need! The component will handle the rest.
+        </p>
+    </chapter>
+
+    <chapter id="cancellation_tokens" title="Cancellation tokens">
+        <p>
+            If you review the demo project, you'll see that I've included and used <code>cancellation tokens</code> to
+            show how the component handles this and what the default image return looks like. Let's review the code the
+            see how this works.
+        </p>
+        <p>
+            First, we need to initialize a <code>cancellation token</code>. In actual projects, this would probably be
+            done elsewhere, but since this is a standalone demo, we have to do it here.
+        </p>
+        <code-block include-lines="22-23" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <p>
+            Now, we'll create a
+            <emphasis>very contrived</emphasis>
+            situation where we'll cancel the token roughly 50% of the time. This will cancel the upstream call and
+            trigger the backend library to return the default image instead. Here's how we'll implement this:
+        </p>
+        <code-block include-lines="25-33" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <tip>
+            This is obviously a very ugly example and I'm in no way saying this a good way to handle cancellation
+            tokens. The goal here is to show what happens -- namely that the default image is returned.
+        </tip>
+        <p>
+            Now, we have to actually make the cancellation take effect. To do this, we'll only render the page once
+            we've decided whether or not to cancel the token. That will be handled using a simple boolean that delays
+            page rendering until our token's fate is determined. Here's the complete page code:
+        </p>
+        <code-block lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <p>
+            When you access this page, you'll see that the default image is returned roughly 50% of the time. In
+            addition, you'll see that only the non-cached image is updated while the cached one stays the same so long
+            as the cached entry is still unexpired (less than 5 minutes old, in this example).
+        </p>
+    </chapter>
+</topic>

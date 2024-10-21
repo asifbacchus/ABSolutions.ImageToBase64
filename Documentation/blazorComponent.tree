@@ -9,5 +9,10 @@
     <toc-element topic="Blazor_Overview.topic"/>
     <toc-element topic="Blazor_Quickstart.md"/>
     <toc-element topic="Blazor_Attributes.topic"/>
-    <toc-element topic="Blazor_Build-a-Demo-Blazor-Site.md"/>
+    <toc-element topic="Blazor_Build-a-Demo-Blazor-Site.md">
+        <toc-element topic="Blazor_Demo_Project-set-up.topic"/>
+        <toc-element topic="Blazor_Demo_Add-the-component.topic"/>
+        <toc-element topic="Blazor_Demo_Update-navigation-menu.topic"/>
+        <toc-element topic="Blazor_Demo_Run-the-project.md"/>
+    </toc-element>
 </instance-profile>
