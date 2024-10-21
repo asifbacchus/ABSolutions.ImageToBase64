@@ -39,4 +39,10 @@ public record Base64ConverterConfiguration
     ///     Time in minutes before base64 cache entries expire. Default: 1440 (24 hours).
     /// </summary>
     public int Base64CacheExpiryMinutes { get; init; } = 1440;
+
+    /// <summary>
+    ///     Add a key with this name to all log entries to facilitate log correlation. If empty, no key will be added. Default:
+    ///     empty.
+    /// </summary>
+    public string LoggingCorrelationIdentifier { get; init; } = string.Empty;
 }
