@@ -1,4 +1,6 @@
-<img src="@_base64Image" alt="@(Alt ?? @"""")" @attributes="@_imageAttributes"/>
+<!--suppress HtmlRequiredAltAttribute -->
+@* ReSharper disable once MissingAltAttributeInImgTag *@
+<img src="@_base64Image" @attributes="@_imageAttributes"/>
 
 @code {
     private string? _base64Image;
@@ -23,6 +25,7 @@
 
     protected override async Task OnParametersSetAsync()
     {
+        _imageAttributes.Add("alt", string.IsNullOrEmpty(Alt) ? string.Empty : Alt);
         _imageAttributes.Add("aria-hidden", AriaHidden.ToString().ToLowerInvariant());
         _imageAttributes.Add("role", Role.ToLowerInvariant());
         if (!string.IsNullOrWhiteSpace(AriaDescription))
