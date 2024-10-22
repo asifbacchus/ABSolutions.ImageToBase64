@@ -40,7 +40,7 @@
             <include element-id="LibraryDemoLoggingCorrelationGuidExplanation" from="Shared_Snippets.topic"/>
         </tab>
         <tab title="picture">
-            <code-block include-lines="51-71" lang="c#" src="Library_Demo_Program.cs">
+            <code-block include-lines="51-71" lang="c#" src="Library_Demo_Program.cs"/>
             <p>
                 This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage
                 displaying that image using the embedded Base64 string. The <code>cache</code> query parameter is

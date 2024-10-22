@@ -17,6 +17,7 @@ Please install the `%ProjectLibraryName%` NuGet package.
 ## Configuration
 
 Let's go ahead and configure the library by modifying the `appsettings.json` file to appear as follows:
+
 <code-block lang="json" src="Library_Demo_appsettings.json"/>
 
 Everything is default except for the `UpstreamImageAssetBaseUri`. We'll be using a free image service to give us a
@@ -31,6 +32,7 @@ this library can be integrated in a correlated logging solution.
 To demonstrate how this package outputs structured logging information, we'll use the included Microsoft Logging
 Extensions but configured for somewhat nauseatingly verbose JSON output. I always prefer to configure logging before
 anything else in my program, so I modified the beginning of my `Program.cs` as follows:
+
 <code-block lang="c#" src="Library_Demo_Program.cs" include-lines="8-18"/>
 
 If you're not interested in structured logging or don't care for the verbose output, you can modify or even omit this

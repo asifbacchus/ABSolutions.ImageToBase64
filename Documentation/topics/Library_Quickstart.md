@@ -63,5 +63,5 @@ public class MyClass
 
 If you need more information about available options or features, please refer to the other pages in this documentation.
 Please also check out the `%ProjectName%.Demo.API` in the [github repo](%GitRepo%) for an example of using this library
-in a minimal API. The [](Library_Build-a-Demo-API.md) pages provide a step-by-step guide to building the afore mentioned
+in a minimal API. The [](Library_Build-a-demo-api.md) pages provide a step-by-step guide to building the afore mentioned
 demo library.
