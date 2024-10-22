@@ -21,6 +21,7 @@
     [Parameter] public bool? NoExpiry { get; set; }
 
     [Parameter] public EventCallback<bool> Base64ImageChanged { get; set; }
+    [Parameter] public string LogCorrelationValue { get; set; } = string.Empty;
     [Parameter] public CancellationToken CancellationToken { get; set; }
 
     protected override async Task OnParametersSetAsync()
@@ -41,7 +42,7 @@
             _imageAttributes.TryAdd(key, value);
         }
 
-        _base64Image = await Base64Converter.GetImageAsBase64Async(Filename, UseCache, NoExpiry, CancellationToken);
+        _base64Image = await Base64Converter.GetImageAsBase64Async(Filename, UseCache, NoExpiry, LogCorrelationValue, CancellationToken);
         await Base64ImageChanged.InvokeAsync(!string.IsNullOrWhiteSpace(_base64Image));
     }
 
