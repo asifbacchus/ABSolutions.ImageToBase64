@@ -1,0 +1,17 @@
+@page "/image"
+@using ABSolutions.ImageToBase64.BlazorComponent
+
+<Base64Image
+    Filename="500.webp"
+    Alt="Lazy-loaded image"
+    Attributes="_attributes"/>
+
+@code {
+    private readonly Dictionary<string, object> _attributes = new()
+    {
+        { "crossorigin", "anonymous" },
+        { "loading", "lazy" },
+        { "data-analytics-tag", "A1B-001"},
+        { "alt", "this will be ignored"}
+    }
+}
