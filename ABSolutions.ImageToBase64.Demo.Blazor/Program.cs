@@ -1,8 +1,19 @@
+using System.Text.Json;
 using ABSolutions.ImageToBase64.Demo.Blazor.Components;
 using ABSolutions.ImageToBase64.DependencyInjection;
 using ABSolutions.ImageToBase64.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddLogging(logBuilder => logBuilder.AddJsonConsole(opts =>
+{
+    opts.IncludeScopes = true;
+    opts.TimestampFormat = "[HH:mm:ss] ";
+    opts.JsonWriterOptions = new JsonWriterOptions
+    {
+        Indented = true
+    };
+}));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
