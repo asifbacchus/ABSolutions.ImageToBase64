@@ -49,6 +49,7 @@ riderModule.iml
 
 # Generated files
 .idea/**/contentModel.xml
+*.zip
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
