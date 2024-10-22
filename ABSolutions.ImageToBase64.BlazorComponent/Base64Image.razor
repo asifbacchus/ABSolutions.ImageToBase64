@@ -1,9 +1,10 @@
+@using ABSolutions.ImageToBase64.Models
 <!--suppress HtmlRequiredAltAttribute -->
 @* ReSharper disable once MissingAltAttributeInImgTag *@
-<img src="@_base64Image" @attributes="@_imageAttributes"/>
+<img src="@_base64Image.Base64String" @attributes="@_imageAttributes"/>
 
 @code {
-    private string? _base64Image;
+    private Base64Result _base64Image;
     private readonly Dictionary<string, object> _imageAttributes = [];
 
     [Inject] private IBase64Converter Base64Converter { get; set; } = default!;
@@ -43,7 +44,7 @@
         }
 
         _base64Image = await Base64Converter.GetImageAsBase64Async(Filename, UseCache, NoExpiry, LogCorrelationValue, CancellationToken);
-        await Base64ImageChanged.InvokeAsync(!string.IsNullOrWhiteSpace(_base64Image));
+        await Base64ImageChanged.InvokeAsync(!string.IsNullOrWhiteSpace(_base64Image.Base64String));
     }
 
 }
