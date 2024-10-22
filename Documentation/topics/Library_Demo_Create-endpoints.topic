@@ -20,40 +20,58 @@
             <p>
                 Modify the existing `Get: /` endpoint to return a helpful message.
             </p>
-            <code-block include-lines="30" lang="c#" src="Library_Demo_Program.cs"/>
+            <code-block include-lines="31" lang="c#" src="Library_Demo_Program.cs"/>
             <p>
                 This will modify our 'homepage' to display a helpful message about the available endpoints and how to
                 use the `cache` query parameter.
             </p>
         </tab>
         <tab id="library-demo-endpoint-base64" title="base64">
-            <code-block include-lines="32-49" lang="c#" src="Library_Demo_Program.cs"/>
             <p>
-                This endpoint returns the Base64 representation of a random remote image. The <code>cache</code> query
-                parameter is optional:
+                This endpoint returns the Base64 representation of a random remote image.
             </p>
-            <include element-id="LibraryDemoEndpointCacheQueryParam" from="Shared_Snippets.topic"/>
-            <p>
-                The <code>cache</code> parameter defaults to <code>false</code> so that a new image is fetched from the
-                remote server on reload. This is only to help you confirm that new Base64 strings are being generated.
-            </p>
-            <include element-id="LibraryDemoLoggingCorrelationGuidExplanation" from="Shared_Snippets.topic"/>
+            <code-block include-lines="33-53" lang="c#" src="Library_Demo_Program.cs"/>
         </tab>
-        <tab title="picture">
-            <code-block include-lines="51-71" lang="c#" src="Library_Demo_Program.cs"/>
+        <tab id="library-demo-endpoint-picture" title="picture">
             <p>
                 This endpoint retrieves a random remote image, converts it to a Base64 string, and returns a webpage
-                displaying that image using the embedded Base64 string. The <code>cache</code> query parameter is
-                optional:
+                displaying that image using the embedded Base64 string.
             </p>
-            <include element-id="LibraryDemoEndpointCacheQueryParam" from="Shared_Snippets.topic"/>
-            <p>
-                The <code>cache</code> parameter defaults to <code>false</code> so that a new image is fetched from the
-                remote server on reload. This is only to help you confirm that new Base64 strings are being generated.
-            </p>
-            <include element-id="LibraryDemoLoggingCorrelationGuidExplanation" from="Shared_Snippets.topic"/>
+            <code-block include-lines="55-76" lang="c#" src="Library_Demo_Program.cs"/>
         </tab>
     </tabs>
+
+    <chapter id="query_parameters" title="Query parameters">
+        <chapter id="cache_query_parameter" title="bool:cache">
+            <p>
+                The <code>cache</code> query parameter is optional for both the <code>base64</code> and
+                <code>picture</code> endpoints. It defaults to <code>false</code> so that a new image is fetched from
+                the remote server on reload. This is only to help you confirm that new Base64 strings are being
+                generated.
+            </p>
+            <include element-id="LibraryDemoEndpointCacheQueryParam" from="Shared_Snippets.topic"/>
+        </chapter>
+
+        <chapter id="error_query_parameter" title="bool:error">
+            <p>
+                The <code>error</code> query parameter for both the <code>base64</code> and <code>picture</code>
+                endpoints is optional and <code>false</code> by default. When set to <code>true</code>, the endpoint
+                will purposely attempt to retrieve a non-existent image which generates a 404 error upstream. This
+                results in the library returning the
+                <emphasis>default image</emphasis>
+                and demonstrates how the library handles errors.
+            </p>
+        </chapter>
+    </chapter>
+
+    <chapter id="correlation_logging" title="Correlation logging">
+        <p>
+            Notice that in both the <code>base64</code> and <code>picture</code> endpoints we are generating a <code>GUID</code>
+            as a sample correlation identifier. Since we've enabled structured JSON logging and configured the library
+            to use a <code>LoggingCorrelationIdentifier</code> (in <code>appsettings.json</code>), we will see this
+            <code>GUID</code> in the logs.
+        </p>
+    </chapter>
 
     <chapter id="the-customHtmlResult-class">
         <title>
