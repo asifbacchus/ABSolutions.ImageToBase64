@@ -106,6 +106,17 @@
                     1440 (1 day)
                 </p>
             </def>
+            <def id="library-config-loggingCorrelationIdentifier" title="string:LoggingCorrelationIdentifier">
+                <p>
+                    'Key' value to use in structured logging for correlation. The value will be added to the log context
+                    when the library is called. If this is not set, or is an empty string, no correlation identifier
+                    will be added to the log context.
+                </p>
+                <p>
+                    <format style="bold">Default:</format>
+                    empty string
+                </p>
+            </def>
         </deflist>
         <tip>
             <code>EnableBase64Cache</code> and <code>NoExpiry</code> can be overriden on a per-call basis. Please see

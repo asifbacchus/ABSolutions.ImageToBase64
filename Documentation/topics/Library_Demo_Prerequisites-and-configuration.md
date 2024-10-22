@@ -20,11 +20,22 @@ Let's go ahead and configure the library by modifying the `appsettings.json` fil
 <code-block lang="json" src="Library_Demo_appsettings.json"/>
 
 Everything is default except for the `UpstreamImageAssetBaseUri`. We'll be using a free image service to give us a
-random picture to
-convert.
+random picture to convert. I have also specified `TransactionId` as my `LoggingCorrelationIdentifier` to demonstrate how
+this library can be integrated in a correlated logging solution.
 
 > I've also changed the logging level for the `ABSolutions.ImageToBase64` namespace to `Debug`. This is optional, but it
 > will let you see more output on the console and better understand what the library is doing.
+
+## Logging
+
+To demonstrate how this package outputs structured logging information, we'll use the included Microsoft Logging
+Extensions but configured for somewhat nauseatingly verbose JSON output. I always prefer to configure logging before
+anything else in my program, so I modified the beginning of my `Program.cs` as follows:
+<code-block lang="c#" src="Library_Demo_Program.cs" include-lines="8-18"/>
+
+If you're not interested in structured logging or don't care for the verbose output, you can modify or even omit this
+entirely. If you don't configure anything, you'll still get standard text output to the console but you will not see
+the 'correlation logging' option output.
 
 ## Register services
 
@@ -36,7 +47,7 @@ and the `Base64Converter` service.
 We'll be using a lightly customized named `HttpClient` instance using the default name the library expects
 (`Base64Converter`) and two custom request headers as an example:
 
-<code-block src="Library_Demo_Program.cs" include-lines="9-15" lang="c#"/>
+<code-block src="Library_Demo_Program.cs" include-lines="19-25" lang="c#"/>
 
 > The `Accept` header tells the upstream service that we only want images. This is strongly recommended.
 > The `UserAgent` header is included as an example of other headers that can be added.
@@ -52,4 +63,4 @@ builder configuration object as an argument.
 You can add this registration call anywhere in the `Program.cs` file before the `builder.Build()` method is called.
 Here's an example along with the `HttpClient` registration:
 
-<code-block src="Library_Demo_Program.cs" include-lines="9-18" lang="c#"/>
+<code-block src="Library_Demo_Program.cs" include-lines="19-28" lang="c#"/>

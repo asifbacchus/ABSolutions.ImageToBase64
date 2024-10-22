@@ -1,0 +1,1 @@
+C:/JetBrains Projects/ABSolutions.ImageToBase64/ABSolutions.ImageToBase64/Services/IBase64Converter.cs

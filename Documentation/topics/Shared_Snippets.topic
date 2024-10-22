@@ -90,6 +90,12 @@
                 <td>Number of minutes to cache the image in memory.</td>
                 <td><code>1440</code></td>
             </tr>
+            <tr>
+                <td><code>LoggingCorrelationIdentifier</code></td>
+                <td><code>string</code></td>
+                <td>Structured logging 'key' name to correlate log entries</td>
+                <td><code>empty string</code></td>
+            </tr>
         </table>
         <note>
             <code>EnableBase64Cache</code> and <code>NoExpiry</code> can be overridden per-request.
@@ -170,6 +176,14 @@
                 the duration specified in `appsettings.json`.
             </li>
         </list>
+    </snippet>
+
+    <snippet id="LibraryDemoLoggingCorrelationGuidExplanation">
+        <p>
+            Notice that we are using a <code>GUID</code> as a sample logging correlation identifier. Since we've enabled
+            structured JSON logging and configured the library to use a <code>LoggingCorrelationIdentifier</code>, we
+            will see this <code>GUID</code> in the logs.
+        </p>
     </snippet>
 
 </topic>

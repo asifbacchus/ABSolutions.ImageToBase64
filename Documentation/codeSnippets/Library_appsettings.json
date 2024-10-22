@@ -5,6 +5,7 @@
     "UpstreamImageRetrievalTimeoutSeconds": 5,
     "EnableBase64Cache": true,
     "NoExpiry": false,
-    "Base64CacheExpiryMinutes": 1440
+    "Base64CacheExpiryMinutes": 1440,
+    "LoggingCorrelationIdentifier": "TransactionId"
   }
 }
