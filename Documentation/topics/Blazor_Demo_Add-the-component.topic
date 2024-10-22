@@ -51,14 +51,14 @@
             First, we need to initialize a <code>cancellation token</code>. In actual projects, this would probably be
             done elsewhere, but since this is a standalone demo, we have to do it here.
         </p>
-        <code-block include-lines="22-23" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <code-block include-lines="23-24" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
         <p>
             Now, we'll create a
             <emphasis>very contrived</emphasis>
             situation where we'll cancel the token roughly 50% of the time. This will cancel the upstream call and
             trigger the backend library to return the default image instead. Here's how we'll implement this:
         </p>
-        <code-block include-lines="25-33" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
+        <code-block include-lines="30-36" lang="c#" src="Blazor_Demo_ImagePage.razor"/>
         <tip>
             This is obviously a very ugly example and I'm in no way saying this a good way to handle cancellation
             tokens. The goal here is to show what happens -- namely that the default image is returned.
@@ -74,5 +74,13 @@
             addition, you'll see that only the non-cached image is updated while the cached one stays the same so long
             as the cached entry is still unexpired (less than 5 minutes old, in this example).
         </p>
+    </chapter>
+
+    <chapter id="log_correlation" title="Log correlation">
+        You may have noticed in the page code that I've included a <code>_logCorrelationValue</code> which is a string
+        derived from a GUID. This is solely to feed the backend-library and illustrate the log correlation features.
+        It is passed via the <code>LogCorrelationValue</code> component parameter and is completely optional. If you
+        want more information on this feature, please refer to the <a href="%DocUrl_Library%">backed-library
+        documentation</a>.
     </chapter>
 </topic>

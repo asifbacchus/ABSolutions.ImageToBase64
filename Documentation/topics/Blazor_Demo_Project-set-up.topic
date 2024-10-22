@@ -42,8 +42,14 @@
             All settings are default except the <code>UpstreamImageAssetBaseUri</code>. I have changed that to a free
             image hosting service that will provide us with random pictures to convert and display.
         </p>
+        <p>
+            I have also added a <code>LoggingCorrelationIdentifier</code> value to demonstrate the log correlation
+            features of the backend library. Please refer to the <a href="%DocUrl_Library%">library documentation</a>
+            for more information about this feature.
+        </p>
         <tip>
-            I have also changed the logging level for the <code>ABSolutions.ImageToBase64</code> namespace to <code>Debug</code>.
+            I have changed the logging level for the <code>ABSolutions.ImageToBase64</code> namespace to
+            <code>Debug</code>.
             This is optional, but it will let you see more output on the console and better understand what is
             happening.
         </tip>
@@ -52,12 +58,24 @@
     <chapter id="register_services" title="Register services">
         Before we can use the component, we need to register the backend library with the DI container. We also need to
         register a named HTTP Client.
+        <chapter id="logging" title="Logging">
+            <p>
+                Near the beginning of the <code>Program.cs</code>, I've configured JSON console logging as follows:
+            </p>
+            <code-block include-lines="8-16" lang="c#" src="Blazor_Demo_Program.cs"/>
+            <p>
+                This is solely to demonstrate the log correlation feature of the backend library. If you are not
+                interested in this feature, you can omit this section of code entirely and logging will revert to the
+                standard plain-text console output. For more information about correlation logging, please refer to the
+                <a href="%DocUrl_Library%">library documentation</a>.
+            </p>
+        </chapter>
         <chapter id="http_client" title="HTTP Client">
             <p>
                 We'll register a lightly-modified <code>HttpClient</code> using the default name our backend library is
                 expecting (<code>Base64Converter</code>).
             </p>
-            <code-block include-lines="11-17" lang="c#" src="Blazor_Demo_Program.cs"/>
+            <code-block include-lines="22-28" lang="c#" src="Blazor_Demo_Program.cs"/>
             <p>
                 This can be placed anywhere in <code>Program.cs</code> before the <code>builder.Build()</code> line.
             </p>
@@ -68,7 +86,7 @@
                 as with the <code>HttpClient</code> service, this can registered anywhere in <code>Program.cs</code>
                 before the <code>builder.Build()</code> line. Here's an example of both services being registered:
             </p>
-            <code-block include-lines="11-19" lang="c#" src="Blazor_Demo_Program.cs"/>
+            <code-block include-lines="22-30" lang="c#" src="Blazor_Demo_Program.cs"/>
         </chapter>
     </chapter>
 </topic>
