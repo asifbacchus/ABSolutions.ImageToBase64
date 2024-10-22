@@ -61,6 +61,7 @@ public class MyClass
 
 ### Default return
 
+<link-summary>Information about the default return image.</link-summary>
 If there are any problems retrieving the image or if any exceptions are thrown for whatever reason, the method will
 return a default image. This allows your webpages, applications, etc. to retain their layout while still being obvious
 that something has gone wrong. The default image looks like this:
@@ -143,3 +144,17 @@ Notice our `TransactionId` is now included in the log context within the relevan
 
 > This assumes you have set-up structured logging and the output has been formatted as human-readable (indented) JSON.
 > Please refer to the demo project for an example of how to do this.
+
+## Return type
+
+The `GetImageAsBase64Async` method returns a `Task<Base64Result>` object. The `Base64Result` is a `struct` with two
+properties:
+
+- `IsSuccess`: A `bool` value indicating whether the operation was successful.
+- `Base64String`: A `string` containing the Base64-encoded string representation of the image.
+
+If the image retrieval and conversion to a Base64-encoded string was successful, `IsSuccess` will be `true` and the
+`Base64String` will contain the Base64-encoded string. If the operation failed, `IsSuccess` will be `false` and the
+`Base64String` will contain the *default* image.
+
+> The `Base64String` property will **never** be null.

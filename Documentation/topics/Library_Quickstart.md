@@ -59,6 +59,17 @@ public class MyClass
 }
 ```
 
+## Return result
+
+The `GetImageAsBase64Async()` method returns a `Task<Base64Result>` object. The `Base64Result` object has two
+properties:
+
+- `IsSuccess`: A `bool` value indicating whether the operation was successful.
+- `Base64String`: A `string` containing the Base64-encoded string representation of the image.
+
+The `Base64String` property will **never** be null. If the operation fails, the `Base64String` property will contain a
+[default image](Library_Calling-the-library.md#default-return).
+
 ## More information
 
 If you need more information about available options or features, please refer to the other pages in this documentation.
