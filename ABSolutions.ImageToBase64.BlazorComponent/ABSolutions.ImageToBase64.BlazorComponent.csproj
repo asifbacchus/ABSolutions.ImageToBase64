@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="absolutions.imagetobase64" Version="1.0.0-beta9"/>
+        <PackageReference Include="absolutions.imagetobase64" Version="1.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8"/>
     </ItemGroup>
 
