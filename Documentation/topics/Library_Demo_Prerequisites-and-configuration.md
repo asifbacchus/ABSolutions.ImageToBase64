@@ -24,7 +24,7 @@ Everything is default except for the `UpstreamImageAssetBaseUri`. We'll be using
 random picture to convert. I have also specified `TransactionId` as my `LoggingCorrelationIdentifier` to demonstrate how
 this library can be integrated in a correlated logging solution.
 
-> I've also changed the logging level for the `ABSolutions.ImageToBase64` namespace to `Debug`. This is optional, but it
+> I've changed the logging level for the `ABSolutions.ImageToBase64` namespace to `Debug`. This is optional, but it
 > will let you see more output on the console and better understand what the library is doing.
 
 ## Logging
