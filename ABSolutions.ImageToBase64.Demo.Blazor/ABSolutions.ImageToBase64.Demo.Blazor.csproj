@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="ABSolutions.ImageToBase64.BlazorComponent" Version="1.0.0-beta5"/>
+        <PackageReference Include="ABSolutions.ImageToBase64.BlazorComponent" Version="1.0.0-beta6" />
     </ItemGroup>
 
 </Project>
