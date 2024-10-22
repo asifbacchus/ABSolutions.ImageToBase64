@@ -22,4 +22,15 @@ public struct Base64Result()
     ///     Image as a Base64-encoded string.
     /// </summary>
     public string Base64String { get; init; } = $"data:image/{DefaultFileExtension};base64,{DefaultBase64String}";
+
+    /// <summary>
+    ///     Create a Base64Result object with a success flag and Base64-encoded string.
+    /// </summary>
+    /// <param name="base64String">Base64-encoded string representing an image.</param>
+    /// <param name="fileType">Image file type (extension).</param>
+    public Base64Result(string base64String, string fileType) : this()
+    {
+        IsSuccess = true;
+        Base64String = $"data:image/{fileType};base64,{base64String}";
+    }
 }
