@@ -1,3 +1,5 @@
+using ABSolutions.ImageToBase64.Models;
+
 namespace ABSolutions.ImageToBase64.Services;
 
 public interface IBase64Converter
@@ -19,7 +21,10 @@ public interface IBase64Converter
     ///     correlation key will not be added.
     /// </param>
     /// <param name="cancellationToken">Cancellation token. Optional.</param>
-    /// <returns></returns>
-    Task<string> GetImageAsBase64Async(string? filename, bool? useCache = null, bool? noExpiry = null,
+    /// <returns>
+    ///     Base64Result object containing a success flag and Base64-encoded string. The Base64-encoded string will always
+    ///     be populated regardless of success condition (i.e. never null).
+    /// </returns>
+    Task<Base64Result> GetImageAsBase64Async(string? filename, bool? useCache = null, bool? noExpiry = null,
         string loggingCorrelationValue = "", CancellationToken cancellationToken = default);
 }
