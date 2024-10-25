@@ -76,9 +76,9 @@
             </def>
             <def id="library-config-enableBase64Cache" title="bool:EnableBase64Cache">
                 <p>
-                    Whether to enable the in-memory cache of Base64 strings. When enabled, Base64 strings for a given
-                    file name will be retrieved from the cache so long as the they have not expired. If the cache is
-                    disabled, the upstream source will be queried for each request.
+                    Whether to enable the in-memory cache of Base64 strings. When enabled, the Base64 string for a given
+                    file name will be retrieved from the cache so long as it has not expired. If the cache is disabled,
+                    the upstream source will be queried for each request.
                 </p>
                 <p>
                     <format style="bold">Default:</format>
