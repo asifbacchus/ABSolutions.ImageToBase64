@@ -12,7 +12,7 @@
     </variables>
     <build-profile instance="library">
         <variables>
-            <product-web-url>https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64</product-web-url>
+            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64-Library</product-web-url>
             <download-title>Project Repo</download-title>
             <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
             <showDownloadButton>true</showDownloadButton>
@@ -26,7 +26,7 @@
     </build-profile>
     <build-profile instance="blazorComponent">
         <variables>
-            <product-web-url>https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64.BlazorComponent
+            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64-BlazorComponent
             </product-web-url>
             <download-title>Project Repo</download-title>
             <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
