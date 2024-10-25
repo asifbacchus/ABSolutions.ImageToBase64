@@ -27,9 +27,6 @@ The service only has one method, `GetImageAsBase64Async`, with the following sig
 
 <code-block lang="c#" src="Library_libInterface.cs" include-lines="23-24"/>
 
-As you can see, there are actually no required parameters. In practice, however, you will be at least be supplying a
-filename.
-
 | Parameter               | Explanation                                                                                                                                                                                                                               | Default                  |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | filename                | The file (or relative path and file name) to retrieve.                                                                                                                                                                                    | `none`                   |
@@ -38,7 +35,8 @@ filename.
 | loggingCorrelationValue | The value to use for log correlation. This will be the 'value' assigned to the 'key' as defined by the `LoggingCorrelationIdentifier` in `appsettings.json`. If this is an empty string, no correlation key will be included in the logs. | `empty string`           |
 | cancellationToken       | Optional cancellation token to use. If none supplied, this task will not be cancellable.                                                                                                                                                  | `CancellationToken.None` |
 
-This is an *asynchronous* method that returns a `Task<string>` where the string is the Base64 encoded image.
+This is an *asynchronous* method that returns a `Task<Base64Result>`. More information about
+the [Base64Result](#base64result-return-type) return type is provided later on this page.
 
 Continuing with the previous example code where we injected the library, this is an example of how to call this method:
 
@@ -66,7 +64,7 @@ If there are any problems retrieving the image or if any exceptions are thrown f
 return a default image. This allows your webpages, applications, etc. to retain their layout while still being obvious
 that something has gone wrong. The default image looks like this:
 
-![Default Image](defaultBase64ReturnImage.png)
+![Default Image](defaultBase64ReturnImage.png){height="200" width="200"}
 
 The image is Base64-encoded 512x512 pixel image of a black exclamation mark surrounded by a black outline of a rounded
 triangle. The image has a transparent background.
@@ -75,7 +73,7 @@ triangle. The image has a transparent background.
 
 If you are using the `loggingCorrelationValue` parameter, you will need to set up the `LoggingCorrelationIdentifier` in
 `appsettings.json`. Assuming both these fields are populated, the log context will be updated accordingly. For example,
-let's the following scenario:
+let's take the following scenario:
 
 **appsettings.json**
 
@@ -87,10 +85,12 @@ let's the following scenario:
 }
 ```
 
-Now assume we call the library as follows:
+Now, assume we call the library as follows:
 
 ```c#
-Console.WriteLine(await _base64Image.GetImageAsBase64Async(filename, loggingCorrelationValue: "12345"));
+Console.WriteLine(
+    await _base64Image
+      .GetImageAsBase64Async(filename, loggingCorrelationValue: "12345"));
 ```
 
 An example JSON structured logging message would be output as follows:
@@ -145,7 +145,7 @@ Notice our `TransactionId` is now included in the log context within the relevan
 > This assumes you have set-up structured logging and the output has been formatted as human-readable (indented) JSON.
 > Please refer to the demo project for an example of how to do this.
 
-## Return type
+## Base64Result Return type
 
 The `GetImageAsBase64Async` method returns a `Task<Base64Result>` object. The `Base64Result` is a `struct` with two
 properties:
