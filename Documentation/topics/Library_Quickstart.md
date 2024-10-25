@@ -52,7 +52,7 @@ public class MyClass
         _base64Img = base64Converter;
     }
 
-    public async Task<Base64Result> GetBase64Image()
+    public async Task<Base64Result> DoStuffAsync()
     {
         return await _base64Img.GetImageAsBase64Async("image.jpg");
     }
