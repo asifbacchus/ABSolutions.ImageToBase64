@@ -13,8 +13,8 @@ While the extension method registers all services specific to this library, you 
 configuration
 property the `appsettings.json` file.
 
-> If the name of the `HttpClient` does not match the one specified in the `HttpClient` library configuration, a default
-`HttpClient` instance will be used instead of your customized one!
+> If the name of the `HttpClient` does not match the one specified in the library configuration (`appsettings.json`), a
+> default `HttpClient` instance will be used instead of your customized one!
 > {style="warning"}
 
 Here's an example, using default values, of how you can handle all necessary dependency injection in your `program.cs`.
