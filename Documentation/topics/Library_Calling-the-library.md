@@ -147,11 +147,7 @@ Notice our `TransactionId` is now included in the log context within the relevan
 
 ## Base64Result Return type
 
-The `GetImageAsBase64Async` method returns a `Task<Base64Result>` object. The `Base64Result` is a `struct` with two
-properties:
-
-- `IsSuccess`: A `bool` value indicating whether the operation was successful.
-- `Base64String`: A `string` containing the Base64-encoded string representation of the image.
+<include from="Shared_Snippets.topic" element-id="returnResultStruct"/>
 
 If the image retrieval and conversion to a Base64-encoded string was successful, `IsSuccess` will be `true` and the
 `Base64String` will contain the Base64-encoded string. If the operation failed, `IsSuccess` will be `false` and the
