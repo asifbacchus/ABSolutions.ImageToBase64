@@ -34,9 +34,9 @@ Alternatively, you can download the source code from the [GitHub repository](%Gi
 
 ## Calling the library
 
-The library only has one public method: `GetImageAsBase64Async()`. This method takes a `string` parameter that
+The library only has one public method: `GetImageAsBase64Async`. This method takes a `string` parameter that
 represents the filename or relative path from the `UpstreamImageAssetBaseUri` to the image you want to
-convert to a Base64 string. The method returns a `Task<string>`.
+convert to a Base64 string. The method returns a `Task<Base64Result>`.
 
 To use the library, inject `IBase64Converter` into your class and call the method. Here is a trivial example:
 
@@ -52,7 +52,7 @@ public class MyClass
         _base64Img = base64Converter;
     }
 
-    public async Task<string> GetBase64Image()
+    public async Task<Base64Result> GetBase64Image()
     {
         return await _base64Img.GetImageAsBase64Async("image.jpg");
     }
@@ -61,7 +61,7 @@ public class MyClass
 
 ## Return result
 
-The `GetImageAsBase64Async()` method returns a `Task<Base64Result>` object. The `Base64Result` object has two
+The `GetImageAsBase64Async` method returns a `Task<Base64Result>` object. The `Base64Result` object has two
 properties:
 
 - `IsSuccess`: A `bool` value indicating whether the operation was successful.
