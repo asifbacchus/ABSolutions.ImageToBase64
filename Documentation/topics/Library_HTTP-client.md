@@ -16,37 +16,44 @@ such as default request headers, resilience policies and even delegating handler
 
 ## Example configurations
 
+The following examples all use the library's default expected `HttpClient` name of *Base64Converter*. You may,
+of course, change this to suit your application. If you do, remember to update the `HttpClientName` in
+`appsettings.json` to match your chosen name.
+
 ### Basic configuration
 
 ```c#
-builder.Services.AddHttpClient("MyHttpClient");
+builder.Services.AddHttpClient("Base64Converter");
 ```
 
-This will create an `HttpClient` named "MyHttpClient" with default settings.
+This will create an `HttpClient` named "Base64Converter" with default settings.
 
 ### Set response headers
 
 ```c#
-builder.Services.AddHttpClient("MyHttpClient", client =>
+builder.Services.AddHttpClient("Base64Converter", client =>
 {
     client.DefaultRequestHeaders.Add("Accept", "image/*");
-    client.DefaultRequestHeaders.UserAgent.ParseAdd("ABSolutions.ImageToBase64");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("MyApplication");
 });
 ```
 
-This will create an `HttpClient` named "MyHttpClient". An `Accept: image/*` request header will be added to all requests
-by default. In addition, a `User-Agent` header will be added with the value `ABSolutions.ImageToBase64`.
+This will create an `HttpClient` named "Base64Converter".
+
+- An `Accept: image/*` request header will be added to all requests by default. The library actually adds this header
+  for you, in case you forget to configure it.
+- A `User-Agent` header will be added with the value `MyApplication`. This is just an example of adding additional
+  headers.
 
 ### Upstream authentication
 
 Since methods and requirements for upstream authentication can vary greatly, this is probably the best example of why
 the choice was made to require injecting a separately configured `HttpClient`. In general, something like this would be
-used for bearer token authentication:
+used for *bearer token* authentication:
 
 ```c#
-builder.Services.AddHttpClient("MyHttpClient", client =>
+builder.Services.AddHttpClient("Base64Converter", client =>
 {
-    client.DefaultRequestHeaders.Add("Accept", "image/*");
     client.DefaultRequestHeaders.Authorization =
         new AuthenticationHeaderValue("Bearer", "token123456");
 });
