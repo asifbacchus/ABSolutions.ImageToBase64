@@ -20,7 +20,7 @@
         </variables>
         <footer>
             <copyright>A-B Solutions/Asif Bacchus 2024</copyright>
-            <link href="https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64">Project repository</link>
+            <link href="https://github.com/asifbacchus/ABSolutions.ImageToBase64">Project repository</link>
             <link href="https://www.nuget.org/packages/ABSolutions.ImageToBase64">Product NuGet page</link>
         </footer>
     </build-profile>
@@ -35,7 +35,7 @@
         </variables>
         <footer>
             <copyright>A-B Solutions/Asif Bacchus 2024</copyright>
-            <link href="https://a-b.solutions/documentation/nuget/ABSolutions.ImageToBase64">Project repository</link>
+            <link href="https://github.com/asifbacchus/ABSolutions.ImageToBase64">Project repository</link>
             <link href="https://www.nuget.org/packages/ABSolutions.ImageToBase64.BlazorComponent">Product NuGet page
             </link>
         </footer>
