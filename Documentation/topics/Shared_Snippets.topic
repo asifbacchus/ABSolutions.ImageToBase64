@@ -163,6 +163,23 @@
         </list>
     </snippet>
 
+    <snippet id="returnResultStruct">
+        <p>
+            The <code>GetImageAsBase64Async</code> method returns a <code>Task&lt;Base64Result&gt;</code> object. The
+            <code>Base64Result</code> is a <code>struct</code> with two properties:
+        </p>
+        <list>
+            <li>
+                <code>IsSuccess</code>:
+                A <code>bool</code> value indicating whether the operation was successful.
+            </li>
+            <li>
+                <code>Base64String</code>:
+                A <code>string</code> containing the Base64-encoded string representation of the image.
+            </li>
+        </list>
+    </snippet>
+
     <snippet id="LibraryDemoEndpointCacheQueryParam">
         <list>
             <li>
