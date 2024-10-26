@@ -78,7 +78,7 @@
 
     <chapter id="log_correlation" title="Log correlation">
         You may have noticed in the page code that I've included a <code>_logCorrelationValue</code> which is a string
-        derived from a GUID. This is solely to feed the backend-library and illustrate the log correlation features.
+        derived from a GUID. This is solely to feed the backend library and illustrate the log correlation features.
         It is passed via the <code>LogCorrelationValue</code> component parameter and is completely optional. If you
         want more information on this feature, please refer to the <a href="%DocUrl_Library%">backed-library
         documentation</a>.

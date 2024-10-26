@@ -91,7 +91,7 @@ and how they affect the component's behavior and the resulting HTML `<img>` tag.
 
 ### Error handling
 
-This Blazor component will return the [default image](Blazor_Default-image.md) if the backend-library encounters *any*
+This Blazor component will return the [default image](Blazor_Default-image.md) if the backend library encounters *any*
 errors. If you want to handle errors in a different way, I would suggest implementing the backend library manually in
 your code and not using this component.
 

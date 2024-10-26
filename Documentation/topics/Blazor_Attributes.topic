@@ -182,12 +182,12 @@
         </def>
         <def id="blazor-attribute-logCorrelationValue" title="string:LogCorrelationValue">
             <p>
-                A value to use for logging correlation. This value is forwarded to the backend-library and used to
+                A value to use for logging correlation. This value is forwarded to the backend library and used to
                 populate the <code>LogContext</code> object. If this attribute is omitted or is empty, no correlation
                 value will be added to the <code>Log Context</code>.
             </p>
             <p>
-                Please refer to the <a href="%DocUrl_Library%">backend-library documentation</a> for more information
+                Please refer to the <a href="%DocUrl_Library%">backend library documentation</a> for more information
                 about log correlation.
             </p>
             <p>
