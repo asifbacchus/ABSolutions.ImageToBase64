@@ -1,5 +1,9 @@
 # Quickstart
 
+<link-summary>Get up and running quickly with a default configuration of this Blazor component.</link-summary>
+<card-summary>Guide to quickly an easily start using this Blazor component with a default configuration.</card-summary>
+<web-summary>Quickstart guide to setting up and using ABSolutions.ImageToBase64.BlazorComponent in your Blazor project.</web-summary>
+
 This quickstart guides you through:
 
 - <a href="#installation" summary="Installing the NuGet package"/>
