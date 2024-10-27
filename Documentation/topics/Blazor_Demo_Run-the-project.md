@@ -14,10 +14,9 @@ Blazor demo page. Notice, however, that the menu has an entry for our *Base64 Im
 ## The Base64 Image page
 
 This page is the entire point of the demo project. When you navigate to it, you will see the page we made earlier. There
-isa 50% chance you'll see the default warning triangle images showing that the cancellation tokens were cancelled.
-This shows what happens if an image retrieval task is cancelled or if some error is encountered. If that happens, just
-reload the page or click on the navigation menu entry again. You may have to do this several times (since cancellation
-is random, remember?) but eventually, you should see the images.
+is a 50% chance you'll see the default warning triangle images showing that the cancellation tokens were cancelled. If
+that happens, just reload the page or click on the navigation menu entry again. You may have to do this several times (
+since cancellation is random, remember?) but eventually, you should see the images.
 
 When the images load, you'll see there are actually two of them. The top one is the *non-cached* image and will update
 every time the component is called. The bottom one is the *cached* version and will only change when the cache expires(
