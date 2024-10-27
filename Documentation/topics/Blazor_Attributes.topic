@@ -15,7 +15,7 @@
     <web-summary>Configuration attributes for the ImageToBase64 Blazor component.</web-summary>
 
     The ImageToBase64 Blazor component can be called with any (or none) of the following attributes to customize its
-    behavior.
+    behaviour.
 
     <tip>
         While not strictly required, the <code>Filename</code> attribute is obviously one that you will use nearly 100%
@@ -184,7 +184,7 @@
             <p>
                 A value to use for logging correlation. This value is forwarded to the backend library and used to
                 populate the <code>LogContext</code> object. If this attribute is omitted or is empty, no correlation
-                value will be added to the <code>Log Context</code>.
+                value will be added to the <code>LogContext</code>.
             </p>
             <p>
                 Please refer to the <a href="%DocUrl_Library%">backend library documentation</a> for more information
