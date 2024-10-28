@@ -1,1 +1,0 @@
-C:/JetBrains Projects/ABSolutions.ImageToBase64/ABSolutions.ImageToBase64.Demo.Blazor/Program.cs
