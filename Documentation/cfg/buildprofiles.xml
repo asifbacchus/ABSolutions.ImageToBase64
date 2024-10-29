@@ -16,7 +16,7 @@
             <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
             <download-title>Project Repo</download-title>
             <noindex-content>false</noindex-content>
-            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64-Library</product-web-url>
+            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64/Library</product-web-url>
             <showDownloadButton>true</showDownloadButton>
         </variables>
         <footer>
@@ -30,7 +30,7 @@
             <download-page>https://github.com/asifbacchus/ABSolutions.ImageToBase64</download-page>
             <download-title>Project Repo</download-title>
             <noindex-content>false</noindex-content>
-            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64-BlazorComponent</product-web-url>
+            <product-web-url>https://a-b.solutions/documentation/nuget/ImageToBase64/BlazorComponent</product-web-url>
             <showDownloadButton>true</showDownloadButton>
         </variables>
         <footer>
