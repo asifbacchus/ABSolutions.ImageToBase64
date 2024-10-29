@@ -12,5 +12,5 @@ Base64-encoded string and includes any additional configured attributes.
 | Git repo      | https://github.com/asifbacchus/ABSolutions.ImageToBase64                |
 | Author        | A-B Solutions (Asif Bacchus)                                            |
 | Contact       | asif@a-b.solutions                                                      |
-| Documentation | https://a-b.solutions/documentation/nuget/ImageToBase64-BlazorComponent |
+| Documentation | https://a-b.solutions/documentation/nuget/ImageToBase64/BlazorComponent |
 | Nuget         | [ABSolutions.ImageToBase64.BlazorComponent]()                           |

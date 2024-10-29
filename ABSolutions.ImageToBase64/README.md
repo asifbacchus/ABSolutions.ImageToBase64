@@ -13,5 +13,5 @@ detailed in the configuration section.
 | Git repo      | https://github.com/asifbacchus/ABSolutions.ImageToBase64        |              |                                                                 |
 | Author        | A-B Solutions (Asif Bacchus)                                    |
 | Contact       | asif@a-b.solutions                                              |
-| Documentation | https://a-b.solutions/documentation/nuget/ImageToBase64-Library |
+| Documentation | https://a-b.solutions/documentation/nuget/ImageToBase64/Library |
 | Nuget         | [ABSolutions.ImageToBase64]()                                   |
