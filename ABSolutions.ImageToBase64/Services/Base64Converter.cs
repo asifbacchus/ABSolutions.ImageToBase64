@@ -347,7 +347,7 @@ public class Base64Converter : IBase64Converter
         {
             _logger?.LogDebug("Checking cache for Base64 string corresponding to {Filename}", filename);
             var cachedBase64String = await _base64Cache.GetCachedBase64(filename);
-            _logger?.LogDebug("Received {CachedSvg} from cache", cachedBase64String?.ToString() ?? "<null>");
+            _logger?.LogDebug("Received {CachedBase64String} from cache", cachedBase64String?.ToString() ?? "<null>");
             if (cachedBase64String is not null &&
                 (cachedBase64String.Expiry is null || cachedBase64String.Expiry > DateTime.UtcNow))
             {
