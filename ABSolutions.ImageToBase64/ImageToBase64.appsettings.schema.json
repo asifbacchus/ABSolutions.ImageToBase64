@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ImageToBase64.appsettings.schema.json",
+  "title": "ImageToBase64 appsettings schema",
+  "type": "object",
+  "ImageToBase64": {
+    "type": "object",
+    "description": "ImageToBase64 configuration.",
+    "properties": {
+      "HttpClientName": {
+        "type": "string",
+        "default": "Base64Converter",
+        "description": "The name of the HttpClient to use for downloading image assets."
+      },
+      "UpstreamImageAssetBaseUri": {
+        "type": "string",
+        "default": "http://localhost",
+        "description": "Upstream base URI from which to retrieve image assets."
+      },
+      "UpstreamImageRetrievalTimeoutSeconds": {
+        "type": "integer",
+        "default": "5",
+        "description": "Timeout in seconds for retrieving image assets from the upstream base URI."
+      },
+      "EnableBase64Cache": {
+        "type": "boolean",
+        "default": "true",
+        "description": "Whether to enable in-memory caching of Base64 strings representing images."
+      },
+      "NoExpiry": {
+        "type": "boolean",
+        "default": "false",
+        "description": "Whether to disable expiry of cached Base64 strings."
+      },
+      "Base64CacheExpiryMinutes": {
+        "type": "integer",
+        "default": "1440",
+        "description": "Number of minutes until cached Base64 strings expire and are refreshed from the upstream URI."
+      },
+      "LoggingCorrelationIdentifier": {
+        "type": "string",
+        "default": "",
+        "description": "Structured logging 'key' to use for logging correlation."
+      }
+    }
+  }
+}
