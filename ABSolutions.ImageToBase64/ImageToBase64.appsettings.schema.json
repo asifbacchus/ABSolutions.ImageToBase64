@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "ImageToBase64.appsettings.schema.json",
+  "$id": "https://a-b.solutions/schema/ImageToBase64.appsettings.schema.json",
   "title": "ImageToBase64 appsettings schema",
   "type": "object",
   "ImageToBase64": {
