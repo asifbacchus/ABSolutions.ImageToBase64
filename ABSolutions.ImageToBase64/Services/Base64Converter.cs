@@ -135,6 +135,7 @@ public class Base64Converter : IBase64Converter
                 if (cache)
                     await UpdateCachedBase64ObjectAsync(filename!, responseContent, expiry, loggingCorrelationValue);
 
+                _logger?.LogInformation("Successfully retrieved image {Filename} as Base64 string", filename);
                 return new Base64Result(responseContent, fileExtension);
             }
             catch (OperationCanceledException exception) when (cancellationToken.IsCancellationRequested)
